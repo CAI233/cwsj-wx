@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>崇文书局</title>
+    <#include "../include/public_file.ftl" />
+    <link rel="stylesheet" href="/static/mobile/css/index.css">
+    <script type='text/javascript' src='/static/mobile/js/index.js' charset='utf-8'></script>
+
+</head>
+<body>
+<header class="bar-nav" style="height:2.5rem;line-height:2.5rem;">
+    <div class="bar-search">
+        <div class="bar-search-logo"></div>
+        <div class="bar bar-header-secondary pull-right" style="top:0;left:auto;right:0;background:transparent;width:65%;">
+            <div class="bar_hide" class="searchbar" style="background:transparent;height:2rem;">
+                <div class="search-input" style="margin-top:0.35rem;">
+                    <label class="icon icon-search" for="search" style="left:auto;right:0.3rem;font-size:1rem;"></label>
+                    <div id="search" style="border:1px solid #ccc;padding-left:0.25rem;padding-right:1.4rem;height:1.8rem;line-height:1.8rem;color:#ccc;border-radius:0.25rem;font-size:0.7rem;">搜索商品、作品</div>
+                    <!--<input type="search" style="border:1px solid #ccc;padding-left:0.25rem;padding-right:1.4rem;height:1.8rem;" id='search' placeholder='搜索图书、资源、作品'/>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<!--页面内容区域-->
+<div class="content" style="bottom: 2.5rem;top:2.5rem;">
+
+
+    <!-- Slider -->
+    <div class="swiper-container" data-space-between='10' id="first-swiper">
+        <div class="swiper-wrapper" id="adv"> </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <div class="buttons-tab" id="windows">
+
+    </div>
+    <div class="content-block">
+        <div class="tabs" >
+            <div class="row" id="w_list">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<nav class="bar bar-tab">
+    <a class="tab-item external active" href="/">
+        <span class="icon iconfont icon-home"></span>
+        <span class="tab-label">首页</span>
+    </a>
+    <a class="tab-item external" href="/bookshelf">
+        <span class="icon iconfont icon-books"></span>
+        <span class="tab-label">书架</span>
+    </a>
+    <a class="tab-item external" href="/classify">
+        <span class="icon iconfont icon-fenlei1"></span>
+        <span class="tab-label">分类</span>
+    </a>
+    <a class="tab-item external" href="/my">
+        <span class="icon iconfont icon-wode-"></span>
+        <span class="tab-label">我的</span>
+    </a>
+</nav>
+
+</body>
+
+</html>

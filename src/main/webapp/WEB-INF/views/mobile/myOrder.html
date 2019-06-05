@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>崇文书局</title>
+    <#include "../include/public_file.ftl" />
+    <script>
+        var getType = $.GetQueryString('type')
+    </script>
+    <link rel="stylesheet" href="/static/mobile/css/myOrder.css">
+    <script type='text/javascript' src='/static/mobile/js/myOrder.js' charset='utf-8'></script>
+
+</head>
+
+<body>
+<header>
+    <a class="icon icon-left pull-left" href="/my"></a>
+    <h1 class="title">我的订单</h1>
+</header>
+<!--页面内容区域-->
+<div class="content" style="top:2.2rem;bottom: 3rem;">
+    <div class="buttons-tab" >
+        <a href="#tab0" onclick="load(0)" class="tab-link active button">全部</a>
+        <a href="#tab1" onclick="load(1)" class="tab-link button">待付款</a>
+        <a href="#tab2" onclick="load(2)" class="tab-link button">待发货</a>
+        <a href="#tab3" onclick="load(3)" class="tab-link button">待收货</a>
+    </div>
+    <div class="content-block">
+        <div class="tabs">
+            <div id="tab0" class="tab active">
+                <div class="card" id="orderList_0">
+
+                </div>
+            </div>
+            <div id="tab1"class="tab">
+                <div class="card" id="orderList_1">
+
+                </div>
+            </div>
+            <div id="tab2" class="tab">
+                <div class="card" id="orderList_2">
+
+                </div>
+            </div>
+            <div id="tab3" class="tab">
+                <div class="card" id="orderList_3">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="display: none" id="cloneOrder">
+    <div class="card-content">
+        <div class="card-header">
+            <span id="order_no"></span>
+            <span id="order_status" style="color: #dab865"></span>
+        </div>
+        <div class="list-block media-list">
+            <ul>
+
+            </ul>
+        </div>
+        <div class="row row-footer" style="padding: .5rem;">
+            <p style="text-align: right">
+                <!--共<span id="nums"></span>件商品 -->
+                合计: <span style="color: red;margin-right: .25rem;" id="price"></span>( 含运费<span id="express_fee"></span> )
+            </p>
+            <div class="row">
+                <a id="goPay"  style="width: 30%;margin-top: .25rem;float: right;" class="button  button-fill button-danger">去支付</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

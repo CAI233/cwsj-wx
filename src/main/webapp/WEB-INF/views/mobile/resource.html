@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>崇文书局</title>
+    <#include "../include/public_file.ftl" />
+
+    <link rel="stylesheet" href="/static/mobile/css/resource.css">
+    <script type='text/javascript' src='/static/mobile/js/resource.js' charset='utf-8'></script>
+    <!--<script src="http://html5media.googlecode.com/svn/trunk/src/html5media.min.js"></script>-->
+
+</head>
+<body id="resource" style="background:#fff;">
+<header class="bar bar-nav" style="background:#fff;">
+    <a class="button button-link button-nav pull-left back" href="javascript:window.history.back()" style="color:#545454;">
+        <span class="icon icon-left"></span>
+        返回
+    </a>
+    <h1 class="title" style="border-bottom: 1px solid #e7e7e7;">资源包</h1>
+</header>
+<!--页面内容区域-->
+
+<div class="content" style="<#if buy ??>bottom:0;<#else>bottom:2.5rem;</#if>background:#f4f4f4;top:2.3rem;">
+    <div class="card demo-card-header-pic">
+        <#if works ??>
+            <div valign="bottom" class="card-header color-white no-border no-padding">
+                <#if works.works_cover ??>
+                    <img class='card-cover' src="${ctxPath}${works.works_cover}" alt=""  style="height:50vw;width:100%;" />
+                    <#else>
+                    <img class='card-cover' src="${ctxPath}/static/mobile/img/img404.png" alt="" style="height:50vw;width:100%;" />
+                </#if>
+            </div>
+            <div class="card-content">
+                <div class="card-content-inner">
+                    <#if works.works_name ??>
+                        <p style="overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;display:-webkit-box;white-space:normal;">${works.works_name}</p>
+                    </#if>
+                    <#if works.works_remark ??>
+                        <p class="color-gray" style="overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;display:-webkit-box;white-space:normal;font-size:0.6rem;">${works.works_remark}</p>
+                    </#if>
+                    <#if works.real_price ??>
+                        <p class="color-gray" style="font-size:0.6rem;">实际售价: <span>&#65509;${works.real_price}</span>
+                            <#if collection ??>
+                                <i class="iconfont icon-shoucang" onclick="collect(2,'${works.works_id}')" style="float:right;color:red;font-size:1rem;"></i>
+                                <#else>
+                                <i class="iconfont icon-shoucang1" onclick="collect(2,'${works.works_id}')" style="float:right;color:red;font-size:1rem;"></i>
+                            </#if>
+                        </p>
+                    </#if>
+                </div>
+            </div>
+        </#if>
+    </div>
+
+    <div class="list-block media-list" style="background: #fff;margin:0.5rem 0;">
+        <div class="item-content">
+            <div class="item-inner">
+                <div class="item-title-row">
+                    <span class="item-title" style="font-size:0.7rem;"><i style="color:#00bce6;margin-right: .5rem;font-size: 1rem"class="icon iconfont icon-books"></i>目录</span>
+                    <span style="float: right"><i class="icon icon-down"></i></span>
+                </div>
+                <ul>
+
+                    <#if buy ??>
+                        <#if list ?? && list?size != 0>
+                            <#list list as obj>
+                                <li style="margin:0.25rem 0;">
+                                    <#if obj.resources_id ??>
+                                        <div style="border-radius:0.25rem;border:1px solid #00bce6;padding:0.25rem;font-size:0.7rem;" onclick="info(${obj.resources_id})">
+                                            <#if obj.res_name ??>
+                                                <a ><i class="iconfont icon-yinliang" style="margin-right:0.75rem;"></i><span>${obj.res_name}</span></a>
+                                            </#if>
+                                        </div>
+                                    </#if>
+                                </li>
+                            </#list>
+                        </#if>
+                        <#else>
+                        <#if list ?? && list?size != 0>
+                            <#list list as obj>
+                                <li style="margin:0.25rem 0;">
+                                    <#if obj.resources_id ??>
+                                        <div style="border-radius:0.25rem;border:1px solid #00bce6;padding:0.25rem;font-size:0.7rem;" >
+                                            <#if obj.res_name ??>
+                                                <a ><i class="iconfont icon-yinliang" style="margin-right:0.75rem;"></i><span>${obj.res_name}</span></a>
+                                            </#if>
+                                        </div>
+                                    </#if>
+                                </li>
+                            </#list>
+                        </#if>
+                    </#if>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" style="-webkit-justify-content:inherit;justify-content:inherit;font-size:0.7rem;"><i class="iconfont icon-tuijian1" style="margin-right:0.5rem;color:#e75b44;"></i>推荐</div>
+        <div class="card-content" style="padding: 0px 1.5%;">
+            <div class="swiper-container" style="padding-bottom:0;width:100%;margin:0;">
+                <div class="swiper-wrapper" >
+                    <#if recommends ?? && recommends ? size !=0 >
+                        <#list recommends as recommend>
+                            <div class="swiper-slide" onclick="javascript:location.href='/worksInfo?works_id=${recommend.works_id}'">
+                                <#if recommend.works_cover_small ??>
+                                    <span style="background:url('${recommend.works_cover_small}') no-repeat center;vertical-align: top;background-size:contain;display:inline-block;width:100%;padding-top:133%;"></span>
+                                    <#else>
+                                    <span style="background:url('/static/mobile/img/img404.png') no-repeat center;vertical-align: top;background-size:contain;display:inline-block;width:100%;padding-top:133%;"></span>
+                                </#if>
+                                <p class="comment-title"
+                                   style="text-align:center;-webkit-box-orient:vertical;-webkit-line-clamp:1;display:-webkit-box;height:1rem;margin:0;font-size:0.7rem;overflow:hidden;">
+                                    ${recommend.works_name}
+                                </p>
+                                <p style="text-align: center;">
+                                    <span style="color: red">￥${recommend.real_price}</span>
+                                    <span style="text-decoration:line-through;color:#ccc;font-size: .6rem">${recommend.price}</span>
+                                </p>
+                            </div>
+                        </#list>
+                    </#if>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<#if buy ??>
+    <#else>
+    <nav class="bar bar-tab" style="height: 3rem;background: #fff">
+        <div class="row">
+            <!--<div class="col-50">-->
+            <!--<a class="down-left" onclick="_addShopCar('${works.works_id}')">加入购物车</a>-->
+            <!--</div>-->
+            <div class="col-50" style="margin-left:30%;">
+
+                <a class="down-right" onclick="_promptlyPay('${works.works_id}','${works.real_price}')">立即购买</a>
+            </div>
+        </div>
+    </nav>
+</#if>
+
+</body>
+</html>

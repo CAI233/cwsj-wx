@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>崇文书局</title>
+
+    <#include "../include/public_file.ftl" />
+
+    <link rel="stylesheet" href="/static/mobile/css/myQuestionsStart.css">
+    <!-- 上传 -->
+    <script type="text/javascript" src="/static/mobile/plugin/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/mobile/plugin/prettyfile/bootstrap-prettyfile.js"></script>
+    <script type="text/javascript" src="/static/mobile/plugin/prettyfile/jquery.form.js"></script>
+    <script type='text/javascript' src='/static/mobile/js/myQuestionsStart.js' charset='utf-8'></script>
+</head>
+
+<body>
+<header>
+    <a class="icon icon-left pull-left" href="javascript:window.history.back()"></a>
+    <h1 class="title">问答</h1>
+</header>
+<!--页面内容区域-->
+<div class="content" style="top:2.2rem;bottom: 2.5rem;">
+    <div class="card">
+        <div class="card-content">
+            <div class="list-block media-list">
+                <ul>
+                    <li class="item-content">
+                        <#if works ?? >
+                            <div class="item-media">
+                                <#if works.works_cover_small ??>
+                                    <img src="${ctxPath}${works.works_cover_small}" style="width:4rem;height:5.33rem;">
+                                    <#else>
+                                        <img src="${ctxPath}/static/mobile/img/img404.png"
+                                             style="width:4rem;height:5.33rem;">
+                                </#if>
+                            </div>
+                            <div style="display:none;" id="worksId">${works.works_id}</div>
+                            <div class="item-inner" style="padding:0.5rem 0.75rem;">
+                                <div class="item-title-row">
+                                    <#if works.works_name ??>
+                                        <div class="item-title" style="font-size:0.75rem;">
+                                            <span>${works.works_name}</span></div>
+                                    </#if>
+                                </div>
+                                <div class="item-text" style="-webkit-line-clamp:3;height:3rem;text-indent:2em;">
+                                    <#if works.works_remark ??>
+                                        <span style="font-size:0.7rem;">${works.works_remark}</span>
+                                    </#if>
+                                </div>
+                                <#if works.real_price ??>
+                                    <p class="color-gray" style="font-size:0.6rem;">实际售价: <span>&#65509;${works.real_price}</span>
+                                        <#if collection ??>
+                                            <i class="iconfont icon-shoucang" onclick="collect(2,'${works.works_id}')" style="float:right;color:red;font-size:1rem;"></i>
+                                            <#else>
+                                                <i class="iconfont icon-shoucang1" onclick="collect(2,'${works.works_id}')" style="float:right;color:red;font-size:1rem;"></i>
+                                        </#if>
+                                    </p>
+                                </#if>
+                            </div>
+                        </#if>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="list-block" style="margin-top:0.25rem;margin-bottom: 0">
+        <div class="item-content" style="padding-left:0;">
+            <div class="item-input" style="padding:0.5rem;margin:0;background:#fff;position:relative;">
+                <textarea maxlength="100" placeholder="请描述您的问题，答者会尽快回复，48小时内无应答，将按支付路径全额退还"
+                          onkeydown="checkMaxInput(this,200)" onkeyup="checkMaxInput(this,200)"
+                          onfocus="checkMaxInput(this,200)"
+                          onblur="checkMaxInput(this,200);"></textarea>
+                <div class="_cont">
+                    <div style="position:relative;">
+                        <div class="_cont_upload" style="float:left;">
+                            <span class="upload">
+                                <i class="upload1"></i>
+                                <i class="upload2"></i>
+                            </span>
+                            <span class="upload" style="margin-left:0.5rem;">
+                                <i class="upload1"></i>
+                                <i class="upload2"></i>
+                            </span>
+                        </div>
+                        <div class="_cont_time" style="font-size:0.7rem;float:right;margin-top:1rem;">
+                            <span>回答时间限制</span>
+                            <!--<div class="item-input" style="display:inline-block;width:2rem;border:1px solid #ccc;border-radius:0.3rem;background:#fff;">-->
+                            <!--<input type="text" placeholder="48" style="height:1.5rem;padding-right:0.4rem;">-->
+                            <!--</div>-->
+                            <span>48</span>
+                            <span>小时</span>
+                        </div>
+                        <div style="clear:both;"></div>
+                        <div style="position:absolute;width:100%;top:-1.5rem;">
+                            <div style="float:left;width:calc(100% - 3rem);width:-moz-calc(100% - 3rem);width:-webkit-calc(100% - 3rem);height:1px;background:#ccc;margin-top:0.7rem;"></div>
+                            <div style="float:right;">
+                                <span id="nums">0</span>/<span>100</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--头像上传-->
+<input type="file" autocomplete="off" id="up"
+       class="form-control file-pretty" name="file" data-id="file" data-ajax="true" accept="image/*"/>
+
+<nav class="bar bar-tab" style="background:#fff;">
+    <div class="bar_foot" onclick="_QS_submit();">确认提交</div>
+</nav>
+
+</body>
+
+</html>

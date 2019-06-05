@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>崇文书局</title>
+    <#include "../include/public_file.ftl" />
+
+    <link rel="stylesheet" href="/static/mobile/css/myCollect.css">
+    <script type='text/javascript' src='/static/mobile/js/myCollect.js' charset='utf-8'></script>
+</head>
+
+<body>
+<header>
+    <a class="icon icon-left pull-left" href="/my"></a>
+    <h1 class="title">我的收藏</h1>
+</header>
+<!--页面内容区域-->
+<div class="content" style="top:2.2rem">
+    <div class="content">
+        <div class="buttons-tab">
+            <a href="#tab1" class="tab-link active button">作品</a>
+            <a href="#tab2" class="tab-link button">商品</a>
+        </div>
+        <div class="content-block">
+            <div class="tabs">
+                <div id="tab1" class="tab active">
+                    <#if worksList ?? && worksList ?size !=0>
+                        <#list worksList as lis>
+                            <div>
+                                <div class="swiper-container swiper-container-horizontal">
+                                    <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(0, 0px, 0px);">
+                                        <div class="swiper-slide content swiper-slide-active" style="width: 100%">
+                                            <div class="card" style="margin:0;width:100%;">
+                                                <div class="card-content">
+                                                    <div class="list-block media-list">
+                                                        <ul>
+                                                            <li class="item-content" onclick="_goTo(false,'${lis.works_id}')">
+                                                                <div class="item-media">
+                                                                    <#if lis.works_cover_small ?? >
+                                                                        <img src="${ctxPath}${lis.works_cover_small}" style="width:4rem;height:5.333rem;" />
+                                                                        <#else>
+                                                                            <img src="${ctxPath}/static/mobile/img/img404.png" style="width:4rem;height:5.333rem;" />
+                                                                    </#if>
+                                                                </div>
+                                                                <div class="item-inner">
+                                                                    <div class="item-title-row">
+                                                                        <#if lis.works_name ??>
+                                                                            <div class="item-text" >${lis.works_name}</div>
+                                                                        </#if>
+                                                                    </div>
+                                                                    <#if lis.works_type ??>
+                                                                        <p >${lis.works_type}</p>
+                                                                    </#if>
+                                                                    <p>
+                                                                        <span style="color: red" > ￥${lis.real_price}</span>
+                                                                    </p>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide del swiper-slide-next" style="width:30%;" onclick="delColl(2,'${lis.works_id}')">删除</div>
+                                    </div>
+                                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                                </div>
+                            </div>
+                        </#list>
+                    </#if>
+                </div>
+                <div id="tab2" class="tab">
+                    <#if goodsList ?? && goodsList ?size !=0>
+                        <#list goodsList as lis>
+                            <div>
+                                <div class="swiper-container swiper-container-horizontal">
+                                    <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(0, 0px, 0px);">
+                                        <div class="swiper-slide content swiper-slide-active" style="width: 100%">
+                                            <div class="card" style="margin:0;width:100%;">
+                                                <div class="card-content">
+                                                    <div class="list-block media-list">
+                                                        <ul>
+                                                            <li class="item-content" onclick="_goTo(true,'${lis.goods_id}')">
+                                                                <div class="item-media">
+                                                                    <#if lis.goods_cover_small ?? >
+                                                                        <img src="${ctxPath}${lis.goods_cover_small}" style="width:4rem;height:5.333rem;"  />
+                                                                        <#else>
+                                                                            <img src="${ctxPath}/static/mobile/img/img404.png" style="width:4rem;height:5.333rem;" />
+                                                                    </#if>
+                                                                </div>
+                                                                <div class="item-inner">
+                                                                    <div class="item-title-row">
+                                                                        <#if lis.goods_name ??>
+                                                                            <div class="item-text">${lis.goods_name}</div>
+                                                                        </#if>
+                                                                    </div>
+                                                                    <#if lis.goods_type ??>
+                                                                        <p >${['实体书','音视频','电子书'][lis.goods_type-1]}</p>
+                                                                    </#if>
+                                                                    <p>
+                                                                        <span style="color: red" >￥${lis.real_price}</span>
+                                                                        <#if lis.discount ??>
+                                                                            <span style="text-decoration: line-through;" >${lis.discount}</span>
+                                                                        </#if>
+                                                                    </p>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide del swiper-slide-next" style="width:30%;" onclick="delColl(1,'${lis.goods_id}')">删除</div>
+                                    </div>
+                                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                                </div>
+                            </div>
+                        </#list>
+                    </#if>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

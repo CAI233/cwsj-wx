@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>崇文书局</title>
+    <#include "../include/public_file.ftl" />
+
+    <link rel="stylesheet" href="/static/mobile/css/lookRecord.css">
+    <script type='text/javascript' src='/static/mobile/js/lookRecord.js' charset='utf-8'></script>
+</head>
+
+<body>
+<header>
+    <a class="icon icon-left pull-left" href="/my"></a>
+    <h1 class="title">浏览记录</h1>
+</header>
+<!--页面内容区域-->
+<div class="content" style="top:2.2rem">
+    <div class="buttons-tab" style="border-bottom: 1px solid #ddd;">
+        <a href="#tab1" class="tab-link active button" >作品</a>
+        <a href="#tab2" class="tab-link button" >商品</a>
+    </div>
+    <div class="content-block">
+        <div class="tabs">
+            <div id="tab1" class="tab active" >
+                <#if worksList ?? && worksList?size != 0>
+                    <#list worksList as works>
+                        <div>
+                            <div class="swiper-container swiper-container-horizontal">
+                                <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(0, 0px, 0px);">
+                                    <div class="swiper-slide content swiper-slide-active" style="width: 100%">
+                                        <div class="card" style="margin:0;width:100%;">
+                                            <div class="card-content">
+                                                <div class="list-block media-list">
+                                                    <ul>
+                                                        <li class="item-content" onclick="_goTo(false,'${works.saw_id}')">
+                                                            <div class="item-media">
+                                                                <#if works.cover ??>
+                                                                    <img src="${ctxPath}${works.cover}" width="44">
+                                                                    <#else>
+                                                                        <img src="${ctxPath}/static/mobile/img/img404.png" width="44">
+                                                                </#if>
+                                                            </div>
+                                                            <div class="item-inner">
+                                                                <#if works.name ??>
+                                                                    <div class="item-title-row">
+                                                                        <div class="item-text">${works.name}</div>
+                                                                    </div>
+                                                                </#if>
+                                                                <#if works.works_type ??>
+                                                                    <p style="text-align:left;">${works.works_type}</p>
+                                                                </#if>
+                                                                <#if works.saw_count ??>
+                                                                    <p style="text-align:left;">
+                                                                        <span>浏览&nbsp;${works.saw_count}&nbsp;次</span>
+                                                                    </p>
+                                                                </#if>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide del swiper-slide-next" style="width:30%;" onclick="delRow(${works.id})">删除</div>
+                                </div>
+                                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                            </div>
+                        </div>
+                    </#list>
+                </#if>
+            </div>
+            <div id="tab2" class="tab">
+                <#if goodsList ?? && goodsList?size != 0>
+                    <#list goodsList as goods>
+                        <div>
+                            <div class="swiper-container swiper-container-horizontal">
+                                <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(0, 0px, 0px);">
+                                    <div class="swiper-slide content swiper-slide-active" style="width: 100%">
+                                        <div class="card" style="margin:0;width:100%;">
+                                            <div class="card-content">
+                                                <div class="list-block media-list">
+                                                    <ul>
+                                                        <li class="item-content" onclick="_goTo(true,'${goods.saw_id}')">
+                                                            <div class="item-media">
+                                                                <#if goods.cover ??>
+                                                                    <img src="${ctxPath}${goods.cover}" style="width:4rem;height:5.33rem;" />
+                                                                    <#else>
+                                                                        <img src="${ctxPath}/static/mobile/img/img404.png" style="width:4rem;height:5.33rem;" />
+                                                                </#if>
+                                                            </div>
+                                                            <div class="item-inner">
+                                                                <div class="item-title-row">
+                                                                    <#if goods.name??><div class="item-text">${goods.name}</div></#if>
+                                                                </div>
+                                                                <#if goods.goods_type ??>
+                                                                    <p style="text-align:left;">${['图书','音视频','电子书'][goods.goods_type-1]}</p>
+                                                                </#if>
+                                                                <#if goods.saw_count ??>
+                                                                    <p style="text-align:left;">
+                                                                        <span>浏览&nbsp;${goods.saw_count}&nbsp;次</span>
+                                                                    </p>
+                                                                </#if>
+                                                            </div>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide del swiper-slide-next" style="width:30%;" onclick="delRow(${goods.id})">删除</div>
+                                </div>
+                                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                            </div>
+                        </div>
+                    </#list>
+                </#if>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

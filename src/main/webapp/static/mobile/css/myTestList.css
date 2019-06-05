@@ -1,0 +1,29 @@
+header {
+    height: 2.2rem;
+    line-height: 2.2rem;
+    border-bottom: 1px solid #ddd;
+    padding: 0 .5rem
+}
+header a{
+    color: #545454;
+    position: absolute;
+    z-index: 11;
+}
+.card{
+    margin:0.5rem 0 1.5rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+.card-footer{
+    height:1rem;
+    padding: .5rem ;
+}
+.card-footer .card_foot{
+    background:#dab866;
+    width:100%;
+    padding:0.5rem 0.75rem;
+    border-radius: 0.2rem;
+    margin-top:2rem;
+}
+.card-footer .card_foot span{
+    color:#fff;
+}

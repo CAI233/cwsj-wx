@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>崇文书局</title>
+    <#include "../include/public_file.ftl" />
+    <link rel="stylesheet" href="/static/mobile/css/coorperProject.css">
+    <script type='text/javascript' src='/static/mobile/js/coorperProject.js' charset='utf-8'></script>
+</head>
+
+<body>
+<header class="bar-nav" >
+    <div class="bar-search">
+        <div class="bar-search-logo"></div>
+        <div class="heard_cont" style="padding-left:0.3rem;"><h4>精品工具书数字资源平台</h4></div>
+    </div>
+</header>
+
+
+<!--页面内容区域-->
+<div class="content" style="background:#fff;top: 2.5rem;padding-bottom:2.5rem;">
+    <!-- Slider -->
+    <div class="card" style="margin:0;">
+        <div class="card-content">
+            <div class="card-content-inner" style="padding:0;">
+                <div class="swiper-container" style="padding-bottom:0;height:50vw;overflow:hidden;">
+                    <div class="swiper-wrapper">
+                        <#if advList ?? && advList ? size !=0>
+                            <#list advList as adv>
+                                <div class="swiper-slide">
+                                    <#if adv.adv_url ??>
+                                        <a href="${adv.adv_url}">
+                                            <#if adv.adv_img ??>
+                                                <img src="${ctxPath}${adv.adv_img}" alt="" style="width:100%;height:50vw;" />
+                                            </#if>
+                                        </a>
+                                        <#else>
+                                        <a href="#">
+                                            <#if adv.adv_img ??>
+                                                <img src="${ctxPath}${adv.adv_img}" alt="" style="width:100%;height:50vw;" />
+                                            </#if>
+                                        </a>
+                                    </#if>
+                                </div>
+                            </#list>
+                        </#if>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="background:#fff;padding:0 1rem;">
+        <#if catList ??  && catList ? size != 0>
+            <#list catList as lis>
+                <div  style="border:1px solid;padding:0.75rem 0.25rem 0.25rem;float:left;margin-top:0.5rem;height:5.25rem;" class="col-50">
+                    <a href="/projectList?id=${lis.cat_id}" style="display:inline-block;color:#52483f;width:100%;">
+                        <div style="font-size:0.75rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><i class="iconfont icon-hezuo"></i><span style="margin-left:0.5rem;">${lis.cat_name}</span></div>
+                        <div style="text-indent:2em;font-size:0.6rem;"><span style="overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:3;display: -webkit-box;word-break:break-word;">${lis.cat_remark}</span></div>
+                    </a>
+                </div>
+            </#list>
+        </#if>
+    </div>
+
+</div>
+
+
+
+</body>
+
+</html>

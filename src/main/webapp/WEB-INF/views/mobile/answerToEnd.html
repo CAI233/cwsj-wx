@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>崇文书局</title>
+    <#include "../include/public_file.ftl" />
+
+    <link rel="stylesheet" href="/static/mobile/css/answerToEnd.css">
+    <script type='text/javascript' src='/static/mobile/js/answerToEnd.js' charset='utf-8'></script>
+</head>
+
+<body>
+<header>
+    <a class="icon icon-left pull-left" href="/myTestPaper"></a>
+    <h1 class="title">答题结束</h1>
+</header>
+<!--页面内容区域-->
+<div class="content" style="top:2.2rem">
+    <div class="list-block" style="padding:0.5rem 0;background:#fff;margin:0;">
+        <ul>
+            <#if paperFinish ?? >
+                <li class="item-content row">
+                    <div class="col-50 row" >
+                        <span class="col-50">试卷总分</span>
+                        <#if paperFinish.total_score ??>
+                            <span>${paperFinish.total_score}</span>
+                        </#if>
+                    </div>
+                    <div class="col-50 row" >
+                        <span class="col-50">题目数量</span>
+                        <#if paperFinish.number ??>
+                            <span>${paperFinish.number}</span>
+                        </#if>
+                    </div>
+                </li>
+                <li class="item-content row">
+                    <div class="col-50 row" >
+                        <span class="col-50">回答正确</span>
+                        <#if paperFinish.correct ??>
+                            <span>${paperFinish.correct}</span>
+                        </#if>
+                    </div>
+                    <div class="col-50 row" >
+                        <span class="col-50">回答错误</span>
+                        <#if paperFinish.error ??>
+                            <span>${paperFinish.error}</span>
+                        </#if>
+                    </div>
+                </li>
+                <li class="item-content row">
+                    <div class="col-50 row" >
+                        <span class="col-50">练习得分</span>
+                        <#if paperFinish.score ??>
+                            <span>${paperFinish.score}</span>
+                        </#if>
+                    </div>
+                    <div class="col-50 row" >
+                        <span class="col-50">扣除分数</span>
+                        <#if paperFinish.deduct ??>
+                            <span>${paperFinish.deduct}</span>
+                        </#if>
+                    </div>
+                </li>
+            </#if>
+        </ul>
+        <div class=""><p style=" width:4rem;margin:1rem auto;"><a href="/myTestPaper" class="button">重新答题</a></p></div>
+    </div>
+</div>
+</body>
+
+</html>

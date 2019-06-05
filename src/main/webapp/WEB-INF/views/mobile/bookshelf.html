@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>崇文书局</title>
+    <#include "../include/public_file.ftl" />
+
+    <link rel="stylesheet" href="/static/mobile/css/bookshelf.css">
+    <script type='text/javascript' src='/static/mobile/js/bookshelf.js' charset='utf-8'></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</head>
+
+<body>
+
+<!--页面内容区域-->
+<div class="content" style="bottom: 2.5rem;background: #fff">
+    <div class="action" style="height:2.5rem;">
+        <div class="action-after" style="margin-top:0.25rem;">
+            <span onclick="_actionOpen()">编辑</span>
+        </div>
+        <div class="action-begin animated fadeInDown">
+            <span id="check" onclick="_actionCheck()">全选</span>
+            <span style="float: right" onclick="_actionClose()">取消</span>
+        </div>
+    </div>
+    <div class="bar bar-header-secondary pull-right" style="top:0.25rem;left:auto;right:0;background:transparent;">
+        <a class="bar_show " id="search" style="display:inline-block;"><span class="icon icon-search" style="color:#000;margin:0 0.5rem;"></span></a>
+    </div>
+    <div class="content-padded grid-demo">
+        <div class="row action-row" id="cont">
+        </div>
+    </div>
+</div>
+
+
+<nav class="bar bar-tab">
+    <div class="action-bottom animated fadeInUp">
+        <a class="tab-item external" href="javascript:;" onclick="_delCheck()">
+            <span class="icon iconfont icon-shanchu"></span>
+            <span class="tab-label">删除</span>
+        </a>
+    </div>
+    <a class="tab-item external" href="/">
+        <span class="icon iconfont icon-home"></span>
+        <span class="tab-label">首页</span>
+    </a>
+    <a class="tab-item external active" href="/bookshelf">
+        <span class="icon iconfont icon-books"></span>
+        <span class="tab-label">书架</span>
+    </a>
+    <a class="tab-item external" href="/classify">
+        <span class="icon iconfont icon-fenlei1"></span>
+        <span class="tab-label">分类</span>
+    </a>
+    <a class="tab-item external" href="/my">
+        <span class="icon iconfont icon-wode-"></span>
+        <span class="tab-label">我的</span>
+    </a>
+</nav>
+</body>
+
+</html>

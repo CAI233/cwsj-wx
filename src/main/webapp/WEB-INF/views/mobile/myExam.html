@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>崇文书局</title>
+    <#include "../include/public_file.ftl" />
+
+    <link rel="stylesheet" href="/static/mobile/css/myExam.css">
+    <script type='text/javascript' src='/static/mobile/js/myExam.js' charset='utf-8'></script>
+</head>
+
+<body>
+<header>
+    <a class="icon icon-left pull-left" href="javascript:window.history.back()"></a>
+    <h1 class="title">第一章练习题</h1>
+</header>
+<!--页面内容区域-->
+<div class="content" style="top:2.2rem;bottom:2.5rem;background:#fff;">
+    <div class="swiper-container" id="first-swiper" style="padding-bottom:0;">
+        <div class="swiper-wrapper" >
+            <#if startQuestion ?? && startQuestion ? size !=0>
+                <#list startQuestion as lis>
+                    <div class="swiper-slide">
+                        <div class="card" style="margin:0;">
+                            <div class="card-header">
+                                <span><sapn style="border:1px solid #0894ec;padding:0.2rem;border-radius:0.2rem;font-size:0.75rem;color:#0894ec;">${['单选题','多选题','判断题'][lis.type-1]}</sapn><span style="color:orange;margin-left:0.5rem;">(${lis.score}分)</span></span>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-content-inner" style="min-height:12rem;padding:0.25rem 0.75rem;">
+                                    <div class="item-title-row">${lis.title}</div>
+                                </div>
+                                <div class="item-subtitle answer_cont" style="padding:0.75rem;">
+                                    <#if lis.type==1 || lis.type==2>
+                                        <span class="answer_list"  onclick="select_answer('${lis.type}','A',event,'${lis_index}')">A<i class="iconfont icon-2weixuanzhong" ></i></span>
+                                        <span class="answer_list"  onclick="select_answer('${lis.type}','B',event,'${lis_index}')">B<i class="iconfont icon-2weixuanzhong" ></i></span>
+                                        <span class="answer_list"  onclick="select_answer('${lis.type}','C',event,'${lis_index}')">C<i class="iconfont icon-2weixuanzhong" ></i></span>
+                                        <span class="answer_list"  onclick="select_answer('${lis.type}','D',event,'${lis_index}')">D<i class="iconfont icon-2weixuanzhong" ></i></span>
+                                    </#if>
+                                    <#if lis.type==3>
+                                        <span class="answer_list"  onclick="select_answer('${lis.type}','正确',event,'${lis_index}')">对<i class="iconfont icon-2weixuanzhong" ></i></span>
+                                        <span class="answer_list"  onclick="select_answer('${lis.type}','错误',event,'${lis_index}')">错<i class="iconfont icon-2weixuanzhong" ></i></span>
+                                    </#if>
+                                    <span style="float:right;"><a href="#" class="button" onclick="save_exam('${lis.id}','${lis_index}');">提交答案</a></span>
+                                    <div style="clear:both;"></div>
+                                </div>
+                                <div class="item_foot answer_foot" style="padding:0 0.75rem;">
+                                    <#if lis.analysis ??>
+                                        <div class="answer">
+                                            <span style="float:left;">答案:</span>${lis.analysis}
+                                        </div>
+                                    </#if>
+                                    <#if lis.parsing ??>
+                                        <div class="analys">
+                                            <span style="float:left;">解析:</span>${lis.parsing}
+                                        </div>
+                                    </#if>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </#list>
+            </#if>
+        </div>
+        <!-- Add Pagination -->
+        <!--<div class="swiper-pagination"></div>-->
+        <!--&lt;!&ndash; Add Arrows &ndash;&gt;-->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+</div>
+<nav class="bar bar-tab" style="background:#fff;">
+    <div class="cont_foot">
+        <span>剩余时间: <span style="color:orange;margin:0 0.2rem;" id="nowTime">
+            <#if startQuestion ?? && startQuestion ? size !=0>
+                <#if startQuestion[0].answer_time ??>${startQuestion[0].answer_time}<#else>0</#if>
+            </#if>
+        </span></span>
+        <span >
+            <!--<a id="next" href="#" class="button" style="color:orange;border-color:orange;top:0;" onclick="next()">下一题</a>-->
+            <a id="endExam"href="#" class="button" style="color:orange;border-color:orange;top:0;" onclick="endExam()">结束答题</a>
+        </span>
+        <span><i class="iconfont icon-suoyou open-about" style="margin-right:0.25rem;"></i><span id="now_index">1</span>/<#if startQuestion ?? && startQuestion ? size !=0><span id="now_total">${startQuestion?size}</span></#if></span>
+    </div>
+</nav>
+<div class="popup popup-about">
+    <div class="content-block">
+        <#if startQuestion ?? && startQuestion ? size !=0>
+            <#list startQuestion as lis>
+            <a href="#"  class="rowNum close-popup">${lis_index+1}</a>
+            </#list>
+        </#if>
+        <!--<p>About</p>-->
+        <!--<p><a href="#" class="close-popup">Close popup</a></p>-->
+        <!--<p>Lorem ipsum dolor ...</p>-->
+    </div>
+</div>
+</body>
+
+</html>

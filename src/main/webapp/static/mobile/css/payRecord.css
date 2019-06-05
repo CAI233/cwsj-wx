@@ -1,0 +1,71 @@
+.buttons-tab .button.active {
+    color: #dab865;
+    border-color: #dab865;
+}
+
+header {
+    height: 2.2rem;
+    line-height: 2.2rem;
+    border-bottom: 1px solid #ddd;
+    padding: 0 .5rem
+}
+header a{
+    color: #545454;
+    position: absolute;
+    z-index: 11;
+}
+.buttons-tab .button {
+    font-size: .75rem;
+}
+
+.buttons-tab .button:not(:last-child):before {
+    content: '';
+    position: absolute;
+    top: .5rem;
+    bottom: .35rem;
+    width: 1px;
+    background: #ccc;
+    right: 0px
+}
+
+.card {
+    margin: .5rem 0 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+
+.content-block {
+    margin: 0;
+    padding: 0;
+}
+
+.item-inner p {
+    margin: 0;
+    font-size: .75rem;
+}
+
+
+.item-inner .item-title {
+    font-size: .8rem;
+}
+
+.item-media img {
+    width: 4rem;
+    height: 5.3333333rem;
+}
+.item-title-row .item-text{
+    font-size:.8rem;
+}
+.list-block .item-inner:after {
+    content: none;
+}
+
+.list-block ul {
+    background: transparent;
+}
+
+.list-block ul li {
+    margin-bottom: .25rem;
+    background: #fff;
+}

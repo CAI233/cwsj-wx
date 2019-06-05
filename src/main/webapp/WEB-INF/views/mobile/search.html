@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>崇文书局</title>
+    <#include "../include/public_file.ftl" />
+
+    <!--<link rel="stylesheet" href="/static/mobile/css/classify.css">-->
+    <script type='text/javascript' src='/static/mobile/js/goods.js' charset='utf-8'></script>
+    <style>
+        .col-33{
+            text-align: center;
+        }
+    </style>
+</head>
+<body id="goods">
+<header class="bar bar-nav">
+    <a class="button button-link button-nav pull-left back" href="/classify">
+        <span class="icon icon-left"></span>
+        返回
+    </a>
+    <h1 class="title" style="border-bottom: 1px solid #e7e7e7;">搜索结果</h1>
+</header>
+<!--页面内容区域-->
+<div class="content" style="bottom: 2.5rem;background:#fff;">
+    <div class="buttons-tab" style="">
+        <a href="#tab1" class="tab-link active button">作品</a>
+        <a href="#tab2" class="tab-link button">商品</a>
+    </div>
+    <div class="content-block" style="margin:0;padding:0;">
+        <div class="tabs">
+            <div id="tab1" class="tab active">
+                <div class="list-block" >
+                    <ul>
+                        <#if worksList ?? && worksList?size != 0>
+                        <#list worksList as works>
+                         <li class="item-content" onclick="on_touchW('${works.works_id}')">
+                            <div class="item-media">
+                                <#if works.works_cover_small ??>
+                                    <img src="${ctxPath}${works.works_cover_small}" alt="" style="width:4rem;height:5rem;">
+                                <#else>
+                                    <img src="${ctxPath}/static/mobile/img/img404.png" alt="" style="width:4rem;height:5rem;">
+                                </#if>
+                            </div>
+                            <div style="padding:0.5rem 0.75rem;width:100%;" >
+                                <h5 calss="item-title">${works.works_name}</h5>
+                                <p style="margin:0;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;display: -webkit-box;min-height:50px;">${works.works_remark}</p>
+                                <p class="footer" style="margin:0;">
+                                    <span class="footer_left"><span  style="color:red;">&#65509;</span><i>${works.real_price}</i ><i style="text-decoration:line-through;color:#ccc;margin-left:0.5rem;">${works.price}</i></span>
+                                    <span class="footer_right" style="float:right;">
+                                    <!--<i class="icon icon-cart"></i>-->
+                                    </span>
+                                </p>
+                            </div>
+                        </li>
+                        </#list>
+                        </#if>
+                    </ul>
+                </div>
+            </div>
+            <div id="tab2" class="tab">
+                <div class="list-block" >
+                    <ul>
+                        <#if goodsList ?? && goodsList?size !=0>
+                        <#list goodsList as goods>
+                        <li class="item-content" onclick="on_touch('${goods.goods_id}')">
+                            <div class="item-media">
+                                <#if goods.goods_cover_small ??>
+                                    <img src="${ctxPath}${goods.goods_cover_small}" alt="" style="width:4rem;height:5rem;">
+                                <#else>
+                                    <img src="${ctxPath}/static/mobile/img/img404.png" alt="" style="width:4rem;height:5rem;">
+                                </#if>
+                            </div>
+                            <div style="padding:0.5rem 0.75rem;width:100%;" >
+                                <h5 calss="item-title">${goods.goods_name}</h5>
+                                <p style="margin:0;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;display: -webkit-box;min-height:50px;">${goods.remark}</p>
+                                <p class="footer" style="margin:0;">
+                                    <span class="footer_left"><span  style="color:red;">&#65509;</span><i>${goods.real_price}</i ><i style="text-decoration:line-through;color:#ccc;margin-left:0.5rem;">${goods.price}</i></span>
+                                    <span class="footer_right" style="float:right;">
+                                    <!--<i class="icon icon-cart"></i>-->
+                                </span>
+                                </p>
+                            </div>
+                        </li>
+                        </#list>
+                        </#if>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<nav class="bar bar-tab">
+    <a class="tab-item external" href="/">
+        <span class="icon iconfont icon-home"></span>
+        <span class="tab-label">首页</span>
+    </a>
+    <a class="tab-item external " href="/bookshelf">
+        <span class="icon iconfont icon-books"></span>
+        <span class="tab-label">书架</span>
+    </a>
+    <a class="tab-item external active" href="/classify">
+        <span class="icon iconfont icon-fenlei1"></span>
+        <span class="tab-label">分类</span>
+    </a>
+    <a class="tab-item external" href="#">
+        <span class="icon iconfont icon-wode-"></span>
+        <span class="tab-label">我的</span>
+    </a>
+</nav>
+</body>
+
+</html>

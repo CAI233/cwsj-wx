@@ -1,0 +1,139 @@
+.content-padded .row {
+    font-size: .7rem;
+    margin-left: 0;
+}
+
+.content-padded .row span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+}
+
+.content-padded .row img {
+    /*box-shadow: 0 1px 3px 2px #b3b3b3;*/
+    border-radius: 3px;
+    width: 100%;
+    height: 32.799999996vw;
+}
+
+.action {
+    padding: .5rem 1rem;
+    font-size: .75rem;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+
+.action .action-after {
+
+}
+
+.action .action-begin {
+    position: absolute;
+    top: .5rem;
+    left: 1rem;
+    right: 1rem;
+    bottom: .5rem;
+    display: none;
+    z-index: 11;
+    background: #fff;
+}
+
+.action-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: none;
+    z-index: 111;
+    background: #fff;
+    border-top: 1px solid #e9e9ea;
+}
+
+.action .action-begin.open, .action-bottom.open {
+    display: block;
+}
+
+.action-row > div{
+    position: relative;
+}
+
+.action-row.open > div:not(:last-child).active:after {
+    background: red;
+    opacity: .7;
+    transition: .3s all;
+}
+.action-row.open > div:not(:last-child):after {
+    content: '';
+    position: absolute;
+    top: -.4rem;
+    right: -.4rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    background: #000;
+    opacity: .3;
+    transition: .3s all;
+}
+.action-row.open > div:not(:last-child):before {
+    content: '';
+    position: absolute;
+    right: -.15rem;
+    top: 0;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(-45deg);
+    width: .7rem;
+    height: .3rem;
+    z-index: 1;
+    transition: .3s all;
+}
+
+
+.row .col-33 {
+    width: 27.33333333%;
+    margin: 3%;
+}
+
+.add-book {
+    border: 1px solid #ddd;
+    width: 100%;
+    height: 32.799999996vw;
+    position: relative;
+}
+
+.add-book:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    height: 1px;
+    width: 40px;
+    left: 50%;
+    margin-left: -20px;
+    background: #ddd;
+}
+
+.add-book:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    height: 40px;
+    top: 50%;
+    margin-top: -20px;
+    width: 1px;
+    background: #ddd;
+}
+.bar:after{
+    height:0;
+}
+.selected{
+    display:none;
+}
+.cancel{
+    display:none;
+    color:#ccc;
+    font-size:0.7rem;
+    position:absolute;
+    left: -1.5rem;
+    top: 0.5rem;
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>崇文书局</title>
+    <#include "../include/public_file.ftl" />
+
+    <link rel="stylesheet" href="/static/mobile/css/shoppingCar.css">
+    <script type='text/javascript' src='/static/mobile/js/shoppingCar.js' charset='utf-8'></script>
+
+</head>
+
+<body>
+<header>
+    <a class="icon icon-left pull-left" href="javascript:history.back()"></a>
+    <h1 class="title">购物车</h1>
+</header>
+<!--页面内容区域-->
+<div class="content" style="top:2.2rem">
+    <div class="list-block media-list" style="margin: 0;">
+        <ul id="dataList">
+
+        </ul>
+    </div>
+</div>
+<nav class="bar bar-tab" style="height:3rem;">
+    <div class="list-block media-list" style="margin: 0;">
+        <ul>
+            <li style="height: 3rem;line-height: 3rem;">
+                <label class="label-checkbox item-content" id="checkAll" style="width: 70%;" onclick="_checkAllClick()">
+                    <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                    <div class="item-inner" style="padding: 0">
+                        <div class="item-title-row">
+                            <div class="item-title" style="width:100%;padding-right: .5rem;color: #696969;">
+                                全选
+                                <span style="float: right;">
+                                 <p style="height: 1.5rem;line-height: 2rem">合计: <span style="color: red"
+                                                                                       id="countNum">￥0.00</span></p>
+                                 <p style="height: 1.5rem;line-height: 1rem;text-align: right;">(不含运费)</p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </label>
+                <div class="item-title"
+                     style="position: absolute;right: 0;top: 0;width: 30%;background: red;text-align: center;">
+                    <a onclick="_clearing()" style="color: #fff">结算</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div style="display: none" id="cloneData">
+    <div class="swiper-container swiper-container-horizontal">
+        <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(0, 0px, 0px);">
+            <div class="swiper-slide content swiper-slide-active" style="width: 100%">
+                <li>
+                    <label class="checkList label-checkbox item-content">
+                        <div class="item-media" onclick="_checkClick(this)"><i class="icon icon-form-checkbox"></i>
+                        </div>
+                        <div class="item-media" onclick="_checkClick(this)" style="padding-left: 0.75rem;">
+                            <img src="" width="44">
+                        </div>
+                        <div class="item-inner">
+                            <div class="item-title-row">
+                                <div class="item-text" id="goods_name"></div>
+                            </div>
+                            <p class="item-title-row" id="goods_type" style="margin: .25rem 0;color: #999"></p>
+                            <p style="text-align: left">
+                                <span style="color: red;font-size: .8rem" id="real_price"></span>
+                                <span style="text-decoration: line-through;color: #ccc;font-size: .7rem;vertical-align: text-top;"
+                                      id="price"></span>
+                            </p>
+                            <p>
+                            <div class="addDel">
+                                <a><i class="icon iconfont icon-jian"></i></a>
+                                <span id="goods_num"></span>
+                                <a><i class="icon iconfont icon-jia"></i></a>
+                            </div>
+                            </p>
+                        </div>
+                    </label>
+                </li>
+            </div>
+            <div class="swiper-slide del swiper-slide-next">删除</div>
+        </div>
+        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+    </div>
+</div>
+
+</body>
+
+</html>

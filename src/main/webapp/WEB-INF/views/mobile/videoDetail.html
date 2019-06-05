@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>崇文书局</title>
+    <#include "../include/public_file.ftl" />
+
+    <link rel="stylesheet" href="/static/mobile/css/videoDetail.css">
+    <script type='text/javascript' src='/static/mobile/js/videoDetail.js' charset='utf-8'></script>
+
+</head>
+<body>
+<!--页面内容区域-->
+<div class="content" style="background:#f4f4f4;height:100%;">
+    <#if video ??>
+        <div class="card" style="box-shadow:none;margin:0;">
+            <div class="card-content">
+                <div class="list-block media-list">
+                    <ul>
+                        <li class="item-content" style="border:1px solid #ccc;">
+                            <div class="item-media">
+                                <#if video.video_cover ??>
+                                    <img src="${ctxPath}${video.video_cover}"  style="width:4rem;height:5.33rem" />
+                                    <#else>
+                                     <img src="${ctxPath}/static/mobile/img/img404.png"  style="width:4rem;height:5.33rem" />
+                                </#if>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item_title" style="color:#000;font-size:0.75rem;height:2.1rem;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;display: -webkit-box;word-break:break-word;">${video.video_name}</div>
+                                </div>
+                                <#if video.video_cat_names ??>
+                                    <div class="item-subtitle" style="font-size:0.7rem;">${video.video_cat_names}</div>
+                                </#if>
+                                <#if video.real_price ??>
+                                    <div class="item-subtitle" style="color:red;font-size:0.7rem;">&#65509;<span>${video.real_price}</span ></div>
+                                </#if>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="list-block media-list" style="background: #fff">
+            <div class="item-content">
+                <div class="item-inner">
+                    <div class="item-title-row">
+                    <span class="item-title" style="font-size:0.75rem;">
+                        <i style="color:orange;margin-right: .5rem;font-size: 1rem" class="icon iconfont icon-qipao"></i>简介</span>
+                        <span style="float: right"><i class="icon icon-down" style="font-size:0.75rem;padding:0.25rem 0.5rem;" onclick="downList(event)"></i></span>
+                    </div>
+                    <#if video.video_remark ??>
+                        <p id="downList" style="padding-left:1.5rem;margin:0;font-size:0.7rem;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;display:-webkit-box;word-break:break-word;">${video.video_remark}</p>
+                    </#if>
+                </div>
+            </div>
+        </div>
+    </#if>
+    <div class="list-block media-list" style="background: #fff;margin:0.5rem 0;">
+        <div class="item-content">
+            <div class="item-inner">
+                <div class="item-title-row">
+                    <span class="item-title" style="font-size:0.7rem;"><i style="color:#00bce6;margin-right: .5rem;font-size: 1rem"class="icon iconfont icon-books"></i>目录</span>
+                    <span style="float: right"><i class="icon icon-down"></i></span>
+                </div>
+                <ul>
+                    <#if video.videoResRelList  ?? && video.videoResRelList?size != 0>
+                        <#list video.videoResRelList as obj>
+                            <li style="margin:0.25rem 0;">
+                                <#if obj.res_id ??>
+                                    <div style="border-radius:0.25rem;border:1px solid #00bce6;padding:0.25rem;font-size:0.7rem;" onclick="info(${obj.res_id})">
+                                        <#if obj.res_name ??>
+                                            <a href="#"><i class="iconfont icon-yinliang" style="margin-right:0.75rem;"></i><span>${obj.res_name}</span></a>
+                                        </#if>
+                                    </div>
+                                </#if>
+                            </li>
+                        </#list>
+                    </#if>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

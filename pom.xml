@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.szkj.product</groupId>
+	<artifactId>cw-web</artifactId>
+	<version>1.0</version>
+	<packaging>war</packaging>
+
+	<name>cw-web</name>
+	<description>Project for Product chongwen</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.8.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<product-dependency.version>1.0.3.RELEASE</product-dependency.version>
+	</properties>
+
+
+    <!--设置maven仓库 nexus-->
+    <repositories>
+        <repository>
+            <id>nexus-releases</id>
+            <url>http://114.215.253.86:9898/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+
+
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>nexus-releases</id>
+            <url>http://114.215.253.86:9898/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+    <!--
+   分发构件管理
+   -->
+    <distributionManagement>
+        <!-- 两个id必须与 setting.xml中的<server><id>nexus-releases</id></server>保持一致-->
+        <repository>
+            <id>nexus-releases</id>
+            <name>Releases</name>
+            <url>http://114.215.253.86:9898/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>Snapshots</name>
+            <url>http://114.215.253.86:9898/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+
+	<dependencies>
+
+       <!-- <dependency>
+            <groupId>com.szkj.product.base</groupId>
+            <artifactId>product-base</artifactId>
+            <version>1.0.2-RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.szkj.product</groupId>
+            <artifactId>product-system-core</artifactId>
+            <version>1.0.2.RELEASE</version>
+        </dependency>-->
+        <dependency>
+            <groupId>com.szkj.product</groupId>
+            <artifactId>cw-busiz-core</artifactId>
+            <version>1.0.0.RELEASE</version>
+        </dependency>
+
+        <!--发布到tomcat的war包必须-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+
+    </dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.szkj.product</groupId>
+				<artifactId>product-dependencies</artifactId>
+				<version>${product-dependency.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+    <build>
+        <!-- 为jar包取名 -->
+        <finalName>cw</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.5.8.RELEASE</version>
+
+            </plugin>
+        </plugins>
+    </build>
+</project>
+

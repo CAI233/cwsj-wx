@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>崇文书局</title>
+
+    <#include "../include/public_file.ftl" />
+    <link rel="stylesheet" href="/static/mobile/css/index.css">
+    <script type='text/javascript' src='/static/mobile/js/index.js' charset='utf-8'></script>
+</head>
+
+<body>
+<header class="bar-nav">
+    <div class="bar-search">
+        <div class="bar-search-logo"></div>
+        <div class="bar-search-con">
+            <form class="bar" action="">
+                <div class="searchbar">
+                    <div class="search-input">
+                        <input type="search" id='search' placeholder='搜索图书、资源、作品'/>
+                        <label class="icon icon-search" for="search"></label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</header>
+
+
+<!--页面内容区域-->
+<div class="content" style="bottom: 2.5rem;">
+    <!-- Slider -->
+    <div class="swiper-container" data-space-between='10' id="first-swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><a href=""><img src="/static/mobile/img/sw-file.jpg" alt=""></a></div>
+            <div class="swiper-slide"><a href=""><img src="/static/mobile/img/sw-file.jpg" alt=""></a></div>
+            <div class="swiper-slide"><a href=""><img src="/static/mobile/img/sw-file.jpg" alt=""></a></div>
+            <div class="swiper-slide"><a href=""><img src="/static/mobile/img/sw-file.jpg" alt=""></a></div>
+        </div>
+        <div class="swiper-pagination">
+
+        </div>
+    </div>
+    <div class="buttons-tab">
+        <a href="#tab1" class="tab-link active button">
+            <span data-index="1" class="icon iconfont icon-huo col-100"></span>
+            <br><span>新书热卖</span>
+        </a>
+        <a href="#tab2" class="tab-link button">
+            <span data-index="2" class="icon iconfont icon-fabuzhuanjiawenzhang col-100"></span>
+            <br><span>热门作品</span>
+        </a>
+        <a href="#tab3" class="tab-link button">
+            <span data-index="3" class="icon iconfont icon-jiaoyu col-100"></span>
+            <br><span>畅销教辅</span>
+        </a>
+        <a href="#tab4" class="tab-link button">
+            <span data-index="4" class="icon iconfont icon-book col-100"></span>
+            <br><span>工具书</span>
+        </a>
+    </div>
+    <div class="content-block">
+        <div class="tabs">
+            <div id="tab1" class="tab active">
+                <div class="content-block list-block media-list">
+                    <ul>
+                        <li>
+                            <a href="/goodsInfo" class="item-content">
+                                <div class="item-media"><img
+                                        src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
+                                        style='width: 4rem;height:5.33333rem'></div>
+                                <div class="item-inner" style="padding-right: 0;">
+                                    <div class="item-title-row">
+                                        <div class="item-title">Facebook</div>
+                                    </div>
+                                    <div class="item-text">此处是文本内容...</div>
+                                    <div class="item-title-row">
+                                        <span style="color: red">￥15</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/goodsInfo" class="item-content">
+                                <div class="item-media"><img
+                                        src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
+                                        style='width: 4rem;height:5.33333rem'></div>
+                                <div class="item-inner" style="padding-right: 0;">
+                                    <div class="item-title-row">
+                                        <div class="item-title">Facebook</div>
+                                    </div>
+                                    <div class="item-text">此处是文本内容...</div>
+                                    <div class="item-title-row">
+                                        <span style="color: red">￥15</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/goodsInfo" class="item-content">
+                                <div class="item-media"><img
+                                        src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg"
+                                        style='width: 4rem;height:5.33333rem'></div>
+                                <div class="item-inner" style="padding-right: 0;">
+                                    <div class="item-title-row">
+                                        <div class="item-title">Facebook</div>
+                                    </div>
+                                    <div class="item-text">此处是文本内容...</div>
+                                    <div class="item-title-row">
+                                        <span style="color: red">￥15</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="tab2" class="tab">
+                <div class="content-block">
+                    <p>This is tab 2 content</p>
+                </div>
+            </div>
+            <div id="tab3" class="tab">
+                <div class="content-block">
+                    <p>This is tab 3 content</p>
+                </div>
+            </div>
+            <div id="tab4" class="tab">
+                <div class="content-block">
+                    <p>This is tab 4 content</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<nav class="bar bar-tab">
+    <a class="tab-item external active" href="/">
+        <span class="icon iconfont icon-home"></span>
+        <span class="tab-label">首页</span>
+    </a>
+    <a class="tab-item external" href="/bookshelf">
+        <span class="icon iconfont icon-books"></span>
+        <span class="tab-label">书架</span>
+    </a>
+    <a class="tab-item external" href="/classify">
+        <span class="icon iconfont icon-fenlei1"></span>
+        <span class="tab-label">分类</span>
+    </a>
+    <a class="tab-item external" href="/my">
+        <span class="icon iconfont icon-wode-"></span>
+        <span class="tab-label">我的</span>
+    </a>
+</nav>
+</body>
+
+</html>

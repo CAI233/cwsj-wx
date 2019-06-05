@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>崇文书局</title>
+    <#include "../include/public_file.ftl" />
+
+    <link rel="stylesheet" href="/static/mobile/css/myTestList.css">
+    <script type='text/javascript' src='/static/mobile/js/myTestList.js' charset='utf-8'></script>
+</head>
+
+<body>
+<header>
+    <a class="icon icon-left pull-left" href="javascript:window.history.back()"></a>
+    <h1 class="title">试卷列表</h1>
+</header>
+<!--页面内容区域-->
+<div class="content" style="top:2.2rem;bottom:2.5rem;">
+    <div class="card">
+        <#if works ?? >
+            <div class="card-content">
+                <div class="list-block media-list">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-media">
+                                <#if works.works_cover_small ??>
+                                <img src="${ctxPath}${works.works_cover_small}"
+                                     style="width:4rem;height:5.333rem;" />
+                                    <#else>
+                                        <img src="${ctxPath}/static/mobile/img/img404.png"
+                                             style="width:4rem;height:5.333rem;" />
+                                    </#if>
+                            </div>
+                            <div class="item-inner">
+                                <!--<div class="item-title-row">-->
+                                <!--<div class="item-text">2018高考数学零基础通关课</div>-->
+                                <!--</div>-->
+                                <div calss="item-title" style="overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;display:-webkit-box;white-space:normal;font-size:0.7rem;">${works.works_name}</div>
+                                <div class="item-subtitle" style="margin:0;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;display:-webkit-box;white-space:normal;margin-top:1rem;font-size:0.6rem;">
+                                    ${works.works_remark}
+                                </div>
+                                <#if works.real_price ??>
+                                    <p class="color-gray" style="font-size:0.6rem;">实际售价: <span>&#65509;${works.real_price}</span>
+                                        <#if collection ??>
+                                            <i class="iconfont icon-shoucang" onclick="collect(2,'${works.works_id}')" style="float:right;color:red;font-size:1rem;"></i>
+                                            <#else>
+                                                <i class="iconfont icon-shoucang1" onclick="collect(2,'${works.works_id}')" style="float:right;color:red;font-size:1rem;"></i>
+                                        </#if>
+                                    </p>
+                                </#if>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-footer" >
+                <div class="card_foot" >
+                    <span ><i class="iconfont icon-tushu" style="margin-right:0.5rem;color:#fff;"></i>试卷列表</span>
+                    <#if list ?? && list ? size !=0>
+                        <span style="float:right;"><i style="margin-right:0.2rem;">${list?size}</i>套</span>
+                    </#if>
+                </div>
+            </div>
+        </#if>
+    </div>
+    <div class="content_cont">
+        <ul>
+            <#if list ?? && list ? size !=0>
+                <#list list as lis>
+                    <li style="margin: 0.5rem 0;">
+                        <div class="cont_cont">
+                            <div class="row" style="background:#fff;margin:0 0.5rem;border-radius:0.3rem;padding:1rem 0;">
+                                <div  class="col-80" style="border-right:1px solid #ededed;min-height:4.5rem;">
+                                    <div calss="item-title" style="line-height:1.5rem;">${lis.test_paper_name}</div>
+                                    <div class="row" style="font-size:0.7rem;color:#5f646e;margin:0.3rem 0;">
+                                        <span class="col-50" style="margin-left:0;">试卷总分: <span>${lis.score}</span>分</span>
+                                        <span class="col-50" style="margin-left:0;">答题时间: <span>${lis.answer_time}</span>分钟</span>
+                                    </div>
+                                </div>
+                                <div class="col-20" style="margin-left:0;">
+                                    <#if buy ??>
+                                    <div style="margin-top:1rem;text-align:center;background:#dab866;color:#fff;border-radius:0.3rem;margin-left:0.5rem;font-size:0.7rem;padding:0.25rem;" onclick="go_exam(${lis.id});">开始<br/>答题</div>
+                                    </#if>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </#list>
+            </#if>
+        </ul>
+    </div>
+</div>
+<#if buy ??>
+    <#else>
+<nav class="bar bar-tab" style="line-height:2.5rem;text-align:center;background:#dab866;color:#fff;" onclick="_promptlyPay('${works.works_id}','${works.real_price}')">
+    购买
+</nav>
+</#if>
+
+</body>
+
+</html>

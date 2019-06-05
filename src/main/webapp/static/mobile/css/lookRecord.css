@@ -1,0 +1,119 @@
+.buttons-tab .button.active {
+    color: #dab865;
+    border-color: #dab865;
+}
+
+header {
+    height: 2.2rem;
+    line-height: 2.2rem;
+    border-bottom: 1px solid #ddd;
+    padding: 0 .5rem
+}
+header a{
+    color: #545454;
+    position: absolute;
+    z-index: 11;
+}
+.buttons-tab .button {
+    font-size: .75rem;
+}
+
+.buttons-tab .button:not(:last-child):before {
+    content: '';
+    position: absolute;
+    top: .5rem;
+    bottom: .35rem;
+    width: 1px;
+    background: #ccc;
+    right: 0px
+}
+
+.card {
+    margin: .5rem 0 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.content-block {
+    margin: 0;
+    padding: 0;
+}
+
+.item-inner p {
+    margin: 0;
+    font-size: .75rem;
+}
+
+
+.item-inner .item-title {
+    font-size: .8rem;
+}
+
+.item-media img {
+    width: 4rem;
+    height: 5.3333333rem;
+}
+.item-title-row .item-text{
+    font-size:.8rem;
+}
+.item-inner .continue{
+    position: absolute;
+    top: 50%;
+    border-radius: 1.5rem;
+    border: 1px solid red;
+    color: red;
+    right: .5rem;
+    padding: 0 .8rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    margin-top: -.75rem;
+    font-size: .75rem;
+}
+.list-block .item-inner:after {
+    content: none;
+}
+
+.list-block ul {
+    background: transparent;
+}
+
+.list-block ul li {
+    margin-bottom: .25rem;
+    background: #fff;
+}
+.swiper-slide.del {
+    min-width: 5rem;
+    width: 30%;
+    max-width: 16rem;
+    background-color: red;
+    color: #fff;
+}
+.swiper-container, .swiper-container2 {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 0;
+    display: grid;
+    border-bottom: 1px solid #ddd;
+}
+.swiper-slide {
+    /*text-align: center;*/
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.showList{
+    display:none;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>崇文书局</title>
+    <#include "../include/public_file.ftl" />
+
+    <link rel="stylesheet" href="/static/mobile/css/myQuestionsList.css">
+    <script type='text/javascript' src='/static/mobile/js/myQuestionsList.js' charset='utf-8'></script>
+</head>
+
+<body>
+<header>
+    <a class="icon icon-left pull-left" href="/myQuestions"></a>
+    <h1 class="title">我的问答</h1>
+</header>
+<!--页面内容区域-->
+<div class="content" style="top:2.2rem;bottom:2.5rem;">
+    <div class="list-block" style="margin:0;">
+        <ul style="background:#f8f8f8;">
+            <#if problemInfo ?? && problemInfo ? size != 0>
+            <#list problemInfo as problem>
+                <li class="cont_li">
+                    <div class="item-text">
+                        <div style="font-size:0.75rem;color:#000;"><i class="iconfont icon-wenhao" style="color:#dab866;margin-right:0.25rem;"></i>${problem.problem_content}</div>
+                        <#if problem.create_time ??>
+                            <div style="font-size:0.7rem;color:#ccc;padding-left:1rem;">提问时间:
+                                <span>${problem.create_time?string('yyyy-MM-dd HH:mm:ss')}</span>
+                            </div>
+                        </#if>
+                    </div>
+                    <div >
+                        <div class="item_cont" onclick="showList(event)">
+                            <div class="item_text">
+                                <i class="iconfont icon-BAI-pinglun" style="color:#08aefd;margin-right:0.25rem;float:left;"></i>
+                                <#if problem.answer ??>
+                                <div style="color:#000;padding-left:1rem;font-size:0.75rem;">${problem.answer}</div>
+                                </#if>
+                                <div style="clear:both;"></div>
+                            </div>
+                        </div>
+                        <div class="item_foot">
+
+                            <div style="font-size:0.7rem;color:#ccc;padding-left:1rem;">
+                                <#if problem.status == 1>
+                                    倒计时:<span>${problem.update_time?string('yyyy-MM-dd HH:mm:ss')}</span>
+                                </#if>
+                                <#if problem.status == 2>
+                                    回答时间:<span>${problem.update_time?string('yyyy-MM-dd HH:mm:ss')}</span>
+                                </#if>
+                                <#if problem.status == 3 || problem.status == 4>
+                                    <div style="text-align:center;margin:0.5rem 0;">无回答</div>
+                                </#if>
+                                <#if problem.status ??>
+                                    <span style="color:#08aefd;float:right;">${['未回答','已回答','已超时','拒绝回答'][problem.status-1]}</span>
+                                </#if>
+                                <div style="clear:both;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </#list>
+            </#if>
+        </ul>
+    </div>
+</div>
+<nav class="bar bar-tab" style="background: #fff">
+    <div class="bar_foot" onclick="go_question();">提问</div>
+</nav>
+</body>
+
+</html>

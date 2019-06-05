@@ -1,0 +1,47 @@
+
+#resource header{
+    height: 2.2rem;
+    line-height: 2.2rem;
+    border-bottom: 1px solid #ddd;
+    padding: 0 .5rem;
+}
+#resource .card-content-inner>p:first-child{
+    margin-bottom:0.25rem;
+}
+#resource .color-gray{
+    margin:0.25rem 0 ;
+}
+#resource .card{
+    margin:0;
+}
+#resource .card-content-inner{
+    padding-top:0.5rem;
+    padding-bottom:0.5rem;
+}
+#resource .bar-tab .row div {
+    padding: .5rem 0;
+    text-align: center;
+}
+#resource .bar-tab .row .down-left {
+    border: 1px solid red;
+    border-radius: 5px;
+    color: red;
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    height: 2rem;
+    line-height: 2rem;
+}
+
+#resource .bar-tab .row .down-right {
+    border: 1px solid red;
+    border-radius: 5px;
+    background: red;
+    color: #fff;
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    height: 2rem;
+    line-height: 2rem;
+}
+

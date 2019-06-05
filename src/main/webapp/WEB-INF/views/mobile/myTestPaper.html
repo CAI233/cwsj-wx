@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>崇文书局</title>
+    <#include "../include/public_file.ftl" />
+
+
+    <link rel="stylesheet" href="/static/mobile/css/myTestPaper.css">
+    <script type='text/javascript' src='/static/mobile/js/myTestPaper.js' charset='utf-8'></script>
+</head>
+
+<body>
+<header>
+    <a class="icon icon-left pull-left" href="/my"></a>
+    <h1 class="title">我的试卷</h1>
+</header>
+<!--页面内容区域-->
+<div class="content" style="top:2.2rem">
+    <div class="card">
+        <div class="card-content">
+            <div class="list-block media-list">
+                <ul>
+                    <#if paperList ?? && paperList ? size !=0>
+                        <#list paperList as lis>
+                            <li class="item-content">
+                                <div class="item-media">
+                                    <#if lis.works_cover_small ??>
+                                    <img src="${ctxPath}${lis.works_cover_small}"
+                                         width="44" />
+                                        <#else>
+                                            <img src="${ctxPath}/static/mobile/img/img404.png"
+                                                 width="44" />
+                                            </#if>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-text">${lis.works_name}</div>
+                                    </div>
+                                    <p>${lis.works_type}</p>
+                                    <div class="continue" onclick="goTo(${lis.works_id})">
+                                        练习
+                                    </div>
+                                </div>
+                            </li>
+                        </#list>
+                    </#if>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

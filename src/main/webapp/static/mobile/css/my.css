@@ -1,0 +1,92 @@
+
+.buttons-tab .icon {
+    position: relative;
+    font-size: 1.2rem;
+    color: #dab865;
+    border-color: transparent;
+}
+
+.buttons-tab .button {
+    height: auto !important;
+    line-height: inherit;
+    padding: .25rem;
+    font-size: .6rem;
+}
+
+.buttons-tab:after {
+    content: none;
+}
+
+.list-block {
+    font-size: .75rem;
+    margin: .5rem 0;
+}
+
+.list-block .item-inner {
+    min-height: 2.5rem;
+}
+
+.my-top {
+    width: 100%;
+    height: auto;
+    background: #fff;
+    position: relative;
+    margin-bottom: .5rem;
+    background: url('/static/mobile/img/c4.jpg');
+    background-size: cover;
+}
+
+.my-top .my-icon {
+    text-align: center;
+    width: 20vw;
+    height: 20vw;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 1rem auto .2rem;
+    border: 2px solid #fff;
+}
+
+.my-top .my-icon img {
+    width: 100%;
+    height: 100%;
+}
+
+.my-top .row .border {
+    position: relative;
+}
+.my-top .row .border:before {
+    content: '';
+    position: absolute;
+    right: -1px;
+    width: 2px;
+    top: .5rem;
+    bottom: .2rem;
+    background: #e0e0e0;
+}
+
+.my-top p {
+    margin: 0;
+}
+
+.my-top .setting {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+}
+
+.buttons-tab .icon i{
+    position: absolute;
+    right: -.25rem;
+    top: 0.1rem;
+    font-size: .5rem;
+    border: 1px solid #ef0d59;
+    border-radius: 1rem;
+    padding: 0 .15rem;
+    line-height: 0.5rem;
+    color: #fff;
+    text-align: center;
+    align-items: center;
+    font-style: initial;
+    background: #ef0d59;
+    font-weight: 500;
+}

@@ -1,0 +1,11 @@
+header {
+    height: 2.5rem;
+    line-height: 2.5rem;
+    border-bottom: 1px solid #ddd;
+    padding: 0 .5rem
+}
+header a{
+    color: #545454;
+    position: absolute;
+    z-index: 11;
+}

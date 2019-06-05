@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>崇文书局</title>
+    <#include "../include/public_file.ftl" />
+    <link rel="stylesheet" href="/static/mobile/css/projectDetails.css">
+    <script type='text/javascript' src='/static/mobile/js/projectDetails.js' charset='utf-8'></script>
+</head>
+
+<body>
+<header>
+    <a class="icon icon-left pull-left" onclick="_back()"></a>
+    <#if cooperationProject ?? >
+        <h1 class="title" style="text-overflow:ellipsis;white-space:nowrap;padding-left:1rem;overflow:hidden;">${cooperationProject.project_name}</h1>
+    </#if>
+
+</header>
+<!--页面内容区域-->
+<div class="content" style="top:2.2rem;background:#fff;">
+
+    <#if cooperationProject ?? >
+        <div class="card" style="margin:0.5rem 0;box-shadow:none;">
+            <div class="card-content">
+                <div class="list-block media-list">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-media">
+                                <#if cooperationProject.project_cover ??>
+                                    <img src="${ctxPath}${cooperationProject.project_cover}"  style="width:4rem;height:5.33rem;">
+                                    <#else>
+                                    <img src="${ctxPath}/static/mobile/img/img404.png"  style="width:4rem;height:5.33rem;">
+                                </#if>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item_title" style="height:2.5rem;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;display: -webkit-box;word-break:break-word;">${cooperationProject.project_name}</div>
+                                </div>
+                                <div class="item-subtitle" style="color:#ababab;font-size:0.7rem;">
+                                    <span>${cooperationProject.project_cat_names}</span><br/>
+                                    <span>${cooperationProject.org}</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-footer" style="text-indent:2em;">
+                <div style="white-space:unset;word-break:break-word;">${cooperationProject.remark}</div>
+            </div>
+        </div>
+    </#if>
+</div>
+</body>
+
+</html>

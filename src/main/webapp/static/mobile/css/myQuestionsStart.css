@@ -1,0 +1,74 @@
+header {
+    height: 2.2rem;
+    line-height: 2.2rem;
+    border-bottom: 1px solid #ddd;
+    padding: 0 .5rem
+}
+header a{
+    color: #545454;
+    position: absolute;
+    z-index: 11;
+}
+.card{
+    margin:0;
+}
+.list-block textarea{
+    padding:0.5rem;
+    border:0.1rem solid #dab866;
+    border-radius:0.2rem;
+    height:20rem;
+    background:#f9f9f9;
+    padding-bottom: 6rem;
+}
+._cont{
+    position:absolute;
+    width:calc(100% - 1.2rem);
+    width:-moz-calc(100% - 1.2rem);
+    width:-webkit-calc(100% - 1.2rem);
+    background:#f9f9f9;margin-left:0.1rem;
+    padding:1rem;
+    bottom: 0.75rem;
+}
+.upload{
+    display:inline-block;
+    width:3rem;
+    height:4rem;
+    position:relative;
+    border:1px solid #ccc;
+    background:#fff;
+}
+.upload1{
+    position:absolute;
+    width:calc(100% - 0.5rem);
+    width:-moz-calc(100% - 0.5rem);
+    width:-webkit-calc(100% - 0.5rem);
+    height:1px;
+    background:#ccc;
+    left:0.25rem;
+    top:50%;
+}
+.upload2{
+    position:absolute;
+    width:calc(100% - 0.5rem);
+    width:-moz-calc(100% - 0.5rem);
+    width:-webkit-calc(100% - 0.5rem);
+    height:1px;
+    background:#ccc;
+    transform:rotate(90deg);
+    top:50%;
+    margin-left:0.25rem;
+}
+.bar_foot{
+    display: -webkit-box;
+    display: -moz-box;
+    display:-webkit-flex;
+    display: -ms-flexbox;
+    display:flex;
+    -webkit-justify-content:center;
+    justify-content:center;
+    -webkit-align-items:center;
+    align-items:center;
+    background:#dab866;
+    color:#fff;
+    height:100%;
+}

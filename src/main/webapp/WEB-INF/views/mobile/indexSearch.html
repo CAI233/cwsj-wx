@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>崇文书局</title>
+    <#include "../include/public_file.ftl" />
+    <link rel="stylesheet" href="/static/mobile/css/index.css">
+    <script type='text/javascript' src='/static/mobile/js/indexSearch.js' charset='utf-8'></script>
+
+</head>
+<body>
+<header class="bar-nav" style="height:2.5rem;line-height:2.5rem;">
+    <div class="content-block" style="margin:0;">
+        <p style="margin:0;padding:0 0 0.25rem 0.25rem;position:absolute;top:0;right:0.5rem;">
+            <a href="javascript:window.history.back();" class="close-popup" style="color:#ababab;font-size:0.75rem;"><span style="color:#000;padding:0.5rem 0.3rem;">取消</span></a>
+        <div class="bar bar-header-secondary pull-right" style="top:0;left:0;background:transparent;width:85%;">
+            <div class="bar_hide" class="searchbar" style="background:transparent;height:2rem;">
+                <div class="search-input" style="margin-top:0.35rem;">
+                    <label class="icon icon-search" onclick="search()" for="search" style="left:auto;right:0.3rem;font-size:1rem;"></label>
+                    <input type="search" style="border:1px solid #ccc;padding-left:0.25rem;padding-right:1.4rem;height:1.8rem;" id="search"  placeholder='搜索商品、作品'/>
+                </div>
+            </div>
+        </div>
+        </p>
+    </div>
+</header>
+<!--页面内容区域-->
+<div class="content" style="top:2.5rem;">
+    <div style="padding:0.25rem 0.5rem;background:#fff;border-top:1px solid #ccc;">
+        <p style="margin:0;color:#ccc;font-size: 0.75rem">历史记录</p>
+        <ul>
+            <#if list ??  && list?size !=0>
+                <#list list as lis>
+                    <li class="row" style="font-size:0.75rem;overflow:hidden;padding:0.3rem;border-bottom:1px solid #f4f4f4;" >
+                        <div class="col-80" onclick="onSearch(${lis_index})"><i class="icon icon-search" style="margin-right:0.25rem;"></i><span class="conter">${lis.search_text }</span></div>
+                        <i class="iconfont icon-fanhui1 col-20" onclick="onTap(${lis_index})" style="float:right;padding:0 0.25rem;text-align:right;"></i></li>
+                </#list>
+            </#if>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

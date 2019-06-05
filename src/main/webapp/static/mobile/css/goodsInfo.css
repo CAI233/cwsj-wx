@@ -1,0 +1,218 @@
+.list-block {
+    font-size: .75rem;
+    margin: .5rem 0;
+}
+
+.list-block .item-inner {
+    min-height: 2.5rem;
+}
+
+header {
+    height: 2.2rem;
+    line-height: 2.2rem;
+    border-bottom: 1px solid #ddd;
+    padding: 0 .5rem
+}
+
+header a {
+    color: #545454;
+    position: absolute;
+    z-index: 11;
+}
+
+#ul:before, #ul:after {
+    content: none;
+}
+
+.item-content p {
+    margin: 0;
+}
+
+.item-content:first-child p {
+    font-size: .6rem;
+    color: #949494;
+}
+
+.collect {
+    font-size: 1rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: red;
+}
+
+.comment .item-media {
+    position: absolute;
+    top: .45rem;
+}
+
+.comment .item-media + .item-inner {
+    padding-left: 44px;
+}
+
+.comment .item-content {
+    border-top: 1px solid #efefef;
+}
+
+.click-comment {
+    border: 1px solid #ddd;
+    padding: 0 .5rem;
+    border-radius: 8px;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    color: #adadad;
+    width: 80%;
+    margin-right: 0.5rem;
+}
+
+.card-header.noAfter:after {
+    content: none;
+}
+
+.bar-tab .row .down-left {
+    color: red;
+    display: block;
+    margin: 0 auto;
+    height: 3rem;
+    line-height: 3rem;
+}
+
+.bar-tab .row .down-right {
+    background: #d00221;
+    color: #fff;
+    display: block;
+    margin: 0 auto;
+    height: 3rem;
+    line-height: 3rem;
+}
+
+.bar-tab .row div {
+    text-align: center;
+}
+
+.list-block .item-inner:after {
+    content: none;
+}
+
+.swiper-container p {
+    margin: 0;
+}
+
+.swiper-container img {
+    width: 5rem;
+    height: 6.66666666rem;
+    margin: 0 auto;
+}
+
+.swiper-container .comment-title {
+    text-align: center;
+    /*width: 5rem;*/
+    margin: 0 auto;
+    height: 2.2rem;
+    line-height: 1.1rem;
+}
+
+.Max_msg {
+    text-align: right;
+    float: right;
+    padding-right: 1rem;
+    padding-bottom: .5rem;
+    color: #ccc;
+    font-size: .7rem;
+    width: 100%;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+/*Add to cart animation*/
+#nelsonATCAControlBar .nelsonATCAContainer {
+    width: 1rem;
+    height: 1.3333rem;
+    position: absolute;
+    top: 0;
+    z-index: 60;
+    display: none;
+}
+
+#nelsonATCAControlBar .nelsonATCAContainer img {
+    width: 100%;
+    height: 100%;
+}
+
+.icon-gouwuche {
+    padding: 0 !important;
+    margin-top: .25rem !important;
+}
+
+.car_count {
+    position: absolute;
+    color: red;
+    right: 0;
+    border-radius: 1rem;
+    top: -.3rem;
+    font-size: .5rem;
+    padding: 0 .25rem;
+    height: .8rem;
+    line-height: .7rem;
+    vertical-align: top;
+    border: 1px solid red;
+    background: #fff;
+    display: inline-block;
+}
+
+.car_count.active {
+    animation: myfirst .3s;
+    -moz-animation: myfirst .3s; /* Firefox */
+    -webkit-animation: myfirst .3s; /* Safari and Chrome */
+    -o-animation: myfirst .3s; /* Opera */
+}
+
+@keyframes myfirst {
+    0% {
+        height: .6rem;
+        line-height: .5rem;
+        right: .1rem;
+        top: -.2rem;
+        font-size: .4rem
+    }
+    25% {
+        height: .7rem;
+        line-height: .6rem;
+        right: .05rem;
+        top: -.25rem;
+        font-size: .45rem
+    }
+    50% {
+        height: .9rem;
+        line-height: .8rem;
+        right: -.05rem;
+        top: -.35rem;
+        font-size: .55rem
+    }
+    100% {
+        height: .8rem;
+        line-height: .7rem;
+        right: 0;
+        top: -.3rem;
+        font-size: .5rem
+    }
+
+}
+
+#resource p {
+    width: 100%;
+    background: #f1f1f1;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    padding: 0 .5rem;
+    box-shadow: 2px 2px 1px 0px #dedede;
+    border-radius: 5px;
+}
+#resource p span{
+    color: #6d6d6d;
+}
+
+#resource .icon {
+    font-size: 1rem;
+    color: #7abeff;
+    margin-right: .5rem;
+}

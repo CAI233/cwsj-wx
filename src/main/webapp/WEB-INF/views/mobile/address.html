@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>崇文书局</title>
+    <#include "../include/public_file.ftl" />
+
+    <link rel="stylesheet" href="/static/mobile/css/address.css">
+    <script type='text/javascript' src='/static/mobile/js/address.js' charset='utf-8'></script>
+    <script type="text/javascript" src="//g.alicdn.com/msui/sm/0.6.2/js/sm-city-picker.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+<header>
+    <a class="icon icon-left pull-left" href="javascript:history.back()"></a>
+    <h1 class="title">收货地址</h1>
+</header>
+<!--页面内容区域-->
+<div class="content" style="top:2.2rem">
+    <div id="list">
+
+    </div>
+
+    <p style="width:50%;margin: 5rem auto 1rem"><a  class="button button-big button-round open-about">新增收货地址</a>
+    </p>
+
+</div>
+<div id="cloneCard" style="display: none">
+    <div class="card">
+        <div class="card-content">
+            <div class="list-block media-list">
+                <ul>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title-row">
+                                <div class="item-title"></div>
+                                <div class="item-right"></div>
+                            </div>
+                            <div class="item-subtitle" style="padding: .5rem 0;"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="card-footer">
+            <span class="default-address"><a>设为默认地址</a></span>
+            <span>
+                <i class="icon iconfont icon-shanchu"></i>
+            </span>
+        </div>
+    </div>
+</div>
+
+
+<div class="popup popup-about">
+        <header>
+            <a class="icon icon-left pull-left close-popup"></a>
+            <h1 class="title">编辑地址</h1>
+        </header>
+        <!--页面内容区域-->
+        <div class="content" style="top:2.2rem">
+            <div class="list-block" style="margin: 0;">
+                <ul>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">收货人</div>
+                                <div class="item-input">
+                                    <input type="text" placeholder="请填写真实姓名" id="consignee">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">联系电话</div>
+                                <div class="item-input">
+                                    <input type="text" placeholder="请保持您的电话畅通" id="consignee_phone">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">收货地址</div>
+                                <div class="item-input">
+                                    <input type="text" id='city-picker' placeholder="请选择"/>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="align-top">
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-input">
+                                    <textarea placeholder="请输入详细地址" id="address_detail"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="align-top">
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">邮政编码</div>
+                                <div class="item-input">
+                                    <input type="text" placeholder="请填写邮政编码" id="zip_code">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">设为默认</div>
+                                <div class="item-input" style="text-align: right">
+                                    <label class="label-switch">
+                                        <input type="checkbox" id="default">
+                                        <div class="checkbox"></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <nav class="bar bar-tab" onclick="_formSave()">
+            保存地址
+        </nav>
+    </div>
+</div>
+</body>
+
+</html>

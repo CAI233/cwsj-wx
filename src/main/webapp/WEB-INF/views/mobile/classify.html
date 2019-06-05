@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>崇文书局</title>
+    <#include "../include/public_file.ftl" />
+
+    <link rel="stylesheet" href="/static/mobile/css/classify.css">
+    <script type='text/javascript' src='/static/mobile/js/classify.js' charset='utf-8'></script>
+</head>
+<body>
+<header class="bar-nav" style="height:2.5rem;line-height:2.5rem;">
+    <div class="bar-search">
+        <div class="bar-search-logo"></div>
+        <div class="bar bar-header-secondary pull-right"
+             style="top:0;left:auto;right:0;background:transparent;width:65%;">
+            <div class="bar_hide" class="searchbar" style="background:transparent;height:2rem;">
+                <div class="search-input" style="margin-top:0.35rem;">
+                    <label class="icon icon-search" for="search" onclick="search()"
+                           style="left:auto;right:0.3rem;font-size:1rem;"></label>
+                    <div id="search" style="border:1px solid #ccc;padding-left:0.25rem;padding-right:1.4rem;height:1.8rem;line-height:1.8rem;color:#ccc;border-radius:0.25rem;font-size:0.7rem;">搜索商品、作品</div>
+                    <!--<input type="search" style="border:1px solid #ccc;padding-left:0.25rem;padding-right:1.4rem;height:1.8rem;"-->
+                           <!--id='search' placeholder='输入关键字...'/>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!--页面内容区域-->
+<div class="content" style="bottom:2.5rem;top:2.5rem;">
+    <!-- Slider -->
+    <div class="swiper-container" id="first-swiper">
+        <div class="swiper-wrapper">
+            <#if advList ?? && advList ? size !=0>
+                <#list advList as adv>
+                    <div class="swiper-slide">
+                        <a href="">
+                            <#if adv.adv_img ??>
+                                <img src="${ctxPath}${adv.adv_img}" alt="">
+                            </#if>
+                        </a>
+                    </div>
+                </#list>
+            </#if>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <div class="buttons-tab">
+        <a href="#tab1" class="tab-link active button">
+            <span class="icon iconfont  icon-fabuzhuanjiawenzhang col-100"></span>
+            <br><span>作品分类</span>
+        </a>
+        <a href="#tab2" class="tab-link button">
+            <span class="icon iconfont icon-fangwu col-100"></span>
+            <br><span>商品分类</span>
+        </a>
+    </div>
+    <div class="content-block" style="padding:0;margin:0.25rem 0;">
+        <div class="tabs">
+            <div id="tab1" class="tab active">
+                <div class="list-block">
+                    <ul>
+                        <#if worksList ?? && worksList ? size != 0>
+                            <#list worksList as cat>
+                                <li class="item-content" style="margin-bottom:0.25rem;">
+                                    <div class="card" style="margin:0;">
+                                        <div class="nb_title">
+                                            <span class="particletext lines" style="font-size: .75rem;">
+                                                —&nbsp;&nbsp;${cat.cat_name}&nbsp;&nbsp;—
+                                            </span>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="card-content-inner ">
+                                                <#if cat.children ?? && cat.children ? size != 0>
+                                                    <#list cat.children as child>
+                                                        <div class="card_cont col-25" onclick="goWork(${child.cat_id})">
+                                                            <p style="margin: 0 0 .25rem"><span class="uhead">${child.cat_name?substring(0,2)}</span>
+                                                            </p>
+                                                            <p style="-webkit-box-orient:vertical;-webkit-line-clamp:2;display:-webkit-box;min-height:2rem;margin:0;font-size:0.6rem;overflow:hidden;">
+                                                                ${child.cat_name}</p>
+                                                        </div>
+                                                    </#list>
+                                                </#if>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </#list>
+                        </#if>
+                    </ul>
+                </div>
+            </div>
+            <div id="tab2" class="tab">
+                <div class="list-block">
+                    <ul>
+                        <#if catList ?? && catList ? size != 0>
+                            <#list catList as cat>
+                                <li class="item-content" style="margin-bottom:0.25rem;">
+                                    <div class="card" style="margin:0;">
+                                        <div class="nb_title"><span style="font-size: .75rem;">—&nbsp;&nbsp;${cat.cat_name}&nbsp;&nbsp;—</span>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="card-content-inner ">
+                                                <#if cat.children ?? && cat.children ? size != 0>
+                                                    <#list cat.children as child>
+                                                        <div class="card_cont col-25" onclick="goTo(${child.cat_id})">
+                                                            <p style="margin: 0  0 .25rem"><span class="uhead">${child.cat_name?substring(0,2)}</span>
+                                                            </p>
+                                                            <p style="-webkit-box-orient:vertical;-webkit-line-clamp:2;display:-webkit-box;min-height:2rem;margin:0;font-size:0.6rem;overflow:hidden;">
+                                                                ${child.cat_name}</p>
+                                                        </div>
+                                                    </#list>
+                                                </#if>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </#list>
+                        </#if>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<nav class="bar bar-tab">
+    <a class="tab-item external" href="/">
+        <span class="icon iconfont icon-home"></span>
+        <span class="tab-label">首页</span>
+    </a>
+    <a class="tab-item external " href="/bookshelf">
+        <span class="icon iconfont icon-books"></span>
+        <span class="tab-label">书架</span>
+    </a>
+    <a class="tab-item external active" href="/classify">
+        <span class="icon iconfont icon-fenlei1"></span>
+        <span class="tab-label">分类</span>
+    </a>
+    <a class="tab-item external" href="/my">
+        <span class="icon iconfont icon-wode-"></span>
+        <span class="tab-label">我的</span>
+    </a>
+</nav>
+</body>
+</html>

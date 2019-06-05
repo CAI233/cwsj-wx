@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>崇文书局</title>
+    <#include "../include/public_file.ftl" />
+
+    <link rel="stylesheet" href="/static/mobile/css/orderPay.css">
+    <script>
+        var member_address_id = '<#if address ?? && address.member_address_id??>${address.member_address_id}</#if>'
+    </script>
+    <script type='text/javascript' src='/static/mobile/js/orderPay.js' charset='utf-8'></script>
+
+</head>
+<body>
+
+<header>
+    <a class="icon icon-left pull-left close-popup" href="javascript:history.back()"></a>
+    <h1 class="title">订单支付</h1>
+</header>
+<div class="content" style="top:2.2rem">
+    <div class="card">
+        <div class="card-content">
+            <div class="card-header" style="    padding-right: 0;">
+                <#if address??>
+                    <div class="list-block  media-list" style="width: 100%;">
+                        <a class="item-link item-content" href="/address" style="padding-left: 0;">
+                            <div class="item-media"><i style="font-size: 1rem;" class="icon iconfont icon-ditu"></i>
+                            </div>
+                            <div class="item-inner" style="font-size: .7rem;padding-right: 2rem;">
+                                <div class="item-title-row" style="margin-bottom: .25rem;">
+                                    <div style="font-size:.7rem;" id="member_name">收货人: ${address.consignee}</div>
+                                    <div id="phone">${address.consignee_phone}</div>
+                                </div>
+                                <div class="item-title-row" id="takeAddress">
+                                    <#if address.province??>收货地址: ${address.province}</#if>
+                                    <#if address.city??> ${address.city}</#if>
+                                    <#if address.area??> ${address.area}</#if>
+                                    <#if address.address_detail??> ${address.address_detail}</#if>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <#else>
+                        <div class="list-block  media-list" style="width: 100%;">
+                            <a class="item-link item-content" href="/address" style="padding-left: 0;">
+                                <div class="item-media"><i style="font-size: 1rem;" class="icon iconfont icon-ditu"></i>
+                                </div>
+                                <div class="item-inner" style="font-size: .7rem;padding-right: 2rem;">
+                                    <div class="item-title-row" style="line-height: 1.5rem;">
+                                        暂无收货地址
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                </#if>
+            </div>
+
+            <div class="card-header" style="background: #fff0f2;    height: 2.5rem;">
+                <p><span style="font-weight: bold;color: #000;font-size: .8rem;padding-right: 1rem;">交易说明</span>实体商品,
+                    开封后不予退换货, 请知悉。</p>
+            </div>
+            <div class="list-block media-list">
+                <ul id="orderList">
+                    <#if goods?? && goods?size!=0>
+                        <#list goods as lis>
+                            <li class="item-content">
+                                <div class="item-media">
+                                    <#if lis.goods_cover_small??>
+                                        <img src="${ctxPath}${lis.goods_cover_small}" width="44">
+                                        <#else>
+                                            <img src="${ctxPath}/static/mobile/img/img404.png" width="44">
+
+                                    </#if>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">${lis.goods_name}</div>
+                                    </div>
+                                    <p id="order_type" style="margin: .75rem 0">${['图书', '音视频', '电子书'][lis.goods_type -
+                                        1]}</p>
+                                    <p>
+                                        <span style="color: red;font-size: .8rem" id="order_real_price">￥${lis.real_price}</span>
+                                        <span style="text-decoration: line-through;color: #ccc;font-size: .7rem;vertical-align: text-top;"
+                                              id="order_price">${lis.price}</span>
+                                    </p>
+                                    <div class="nums" id="order_num">x ${lis.goods_num}</div>
+                                </div>
+                            </li>
+                        </#list>
+                    </#if>
+                </ul>
+            </div>
+            <div class="row row-footer" style="padding: .5rem;">
+                <p style="text-align: right;margin: 0 0 .25rem">运费:
+                    <#if express_fee??>${express_fee} 元
+                        <#else>0
+                    </#if>
+                    <span style="color: red"
+                          class="freight_price"></span>&nbsp;&nbsp;
+                </p>
+                <p style="text-align: right;margin: 0">共 <span style="color: red" id="counts"></span>
+                    件商品 小计:
+                    <span style="color: red" id="small_price">￥ <#if price??>${(price?number + express_fee?number)?string("0.00")} 元<#else>0</#if> </span>
+                    ( 含运费: <span class="freight_price"> <#if express_fee??>${express_fee} 元<#else>0</#if></span> )
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<nav class="bar bar-tab">
+    <div class="list-block media-list" style="margin: 0;">
+        <ul>
+            <li style="height: 2.5rem;line-height: 2.5rem;">
+                <div class="item-inner" style="padding: 0">
+                    <div class="item-title-row" style="width: 50%;text-align: center">
+                        <div class="item-title" style="width:100%;">
+                            合计: <span style="color: red" id="all_price">￥ <#if price??>${(price?number + express_fee?number)?string("0.00")} 元<#else>0</#if> </span>
+                        </div>
+                    </div>
+                    <div class="item-title"
+                         style="position: absolute;right: 0;top: 0;width: 50%;background: red;text-align: center;">
+                        <a onclick="_submitOrder()" class="open-about" style="color: #fff">提交订单</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+</body>
+</html>

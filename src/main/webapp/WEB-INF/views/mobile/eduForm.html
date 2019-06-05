@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>崇文书局</title>
+    <#include "../include/public_file.ftl" />
+
+    <link rel="stylesheet" href="/static/mobile/css/eduForm.css">
+    <script type='text/javascript' src='/static/mobile/js/eduForm.js' charset='utf-8'></script>
+</head>
+
+<body>
+<header>
+    <a class="icon icon-left pull-left" href="javascript:window.history.back()"></a>
+    <h1 class="title">教育表格</h1>
+</header>
+<!--页面内容区域-->
+<div class="content" style="top:2.2rem">
+    <!--<div class="card">-->
+        <!--<div class="card-content head">-->
+           <!--<div style="background:url('http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg') no-repeat center top;background-size:100% 6rem;">-->
+               <!--<div style="width:calc(100% - 2rem);width:-moz-calc(100% - 2rem);width:-webkit-calc(100% - 2rem);background:rgba(255,255,255,0.6);padding:0.5rem;width:100%;">-->
+                   <!--<div class="item-title" style="font-size:0.75rem;color:#000;">给爸爸妈妈的暑假作业(语文鄂教2)</div>-->
+                   <!--<div class="item-subtitle" style="margin-top:1.5rem;font-size:0.7rem">《江暑假作业》编委<span style="float:right;">2017-06-02</span></div>-->
+                   <!--<div style="position:relative;" onclick="slide(event);">-->
+                       <!--<div class="item-subtitle item_cont" style="font-size:0.6rem;">那天在美国西部凤凰城大街蹓跶，远远就见一所临街大房子的屋檐下，吊着一个大破汽油桶，一个人钻在里边似乎修理着什么，两只脚露在外边：一只脚耷拉着，另一只脚向上翻起来，仿佛正在使劲。为什么把汽油桶吊在房檐下，那位老兄钻在里边到底干什么？我跑近一看，原来这是假造的。这大房子是一家汽车修理厂，这东西是厂家的幌子。这幌子想得真妙真绝，一下子就能把人吸引过去。-->
+                           <!--在西方处处可以见到稀奇古怪的事。可是如果不奇特，怎么能在千奇百怪中把自己突出出来？奇事来自于奇想。所以我每见一件奇怪的事，总要琢磨他们在怎么想。比如德国人喜欢在一座楼的墙壁上画一座楼。远看是两座楼前后相叠，走近看实际是一座。它给人一种视觉上错觉的奇趣。一次在汉堡易北河边，钻进一条小巷，忽见前面高楼林立间露出一条宽敞优美的林阴大道。到跟前一看原来是借着一座大楼的立面高墙画出来的。墙上的窗户被借用到所画的楼中。想必是这楼的主人感觉小巷闭塞，以此放开人的视野和压抑感。-->
+                       <!--</div>-->
+                       <!--<div class="icon icon-down item_foot"></div>-->
+                   <!--</div>-->
+               <!--</div>-->
+           <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="card" style="margin:0.25rem 0;">
+        <div class="card-content">
+            <div class="list-block media-list">
+                <ul>
+                    <li class="item-content">
+                        <#if works ?? >
+                            <div class="item-media">
+                                <#if works.works_cover_small ??>
+                                    <img src="${ctxPath}${works.works_cover_small}"  style="width:4rem;height:5.33rem;">
+                                    <#else>
+                                        <img src="${ctxPath}/static/mobile/img/img404.png"  style="width:4rem;height:5.33rem;">
+                                </#if>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title-row">
+                                    <#if works.works_name ??>
+                                        <div class="item-title" style="font-size:0.75rem;white-space:inherit;"><span>${works.works_name}</span></div>
+                                    </#if>
+                                </div>
+                                <div class="item-text" style="-webkit-line-clamp:3;height:3.2rem;text-indent:2em;">
+                                    <#if works.works_remark ??>
+                                        <span style="font-size:0.7rem;white-space:inherit;">${works.works_remark}</span>
+                                    </#if>
+                                </div>
+                                <#if works.real_price ??>
+                                    <p class="color-gray" style="font-size:0.6rem;">实际售价: <span>&#65509;${works.real_price}</span>
+                                        <#if collection ??>
+                                            <i class="iconfont icon-shoucang" onclick="collect(2,'${works.works_id}')" style="float:right;color:red;font-size:1rem;"></i>
+                                            <#else>
+                                                <i class="iconfont icon-shoucang1" onclick="collect(2,'${works.works_id}')" style="float:right;color:red;font-size:1rem;"></i>
+                                        </#if>
+                                    </p>
+                                </#if>
+                            </div>
+                        </#if>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <#if list ?? && list?size !=0>
+        <#list list as lis>
+            <div class="list-block" style="margin:0.5rem 0;">
+                <ul>
+                    <li class="item-content">
+                        <div style="float:left;"><span class="cont_left" style="background:#dab866;">Q<span style="margin-left:0.1rem;">${lis_index+1}</span></span></div>
+                        <div style="float:left;margin-left:0.5rem;">
+                            <div class="item-title" style="font-size:0.75rem;white-space:inherit;">${lis.question}</div>
+                        </div>
+                    </li>
+                    <#if buy ??>
+                    <li class="item-content" style="padding-bottom:0.5rem;">
+                        <div style="float:left;"><span class="cont_left" style="background:#08aefd;">A<span style="margin-left:0.1rem;">${lis_index+1}</span></span></div>
+                        <div style="float:left;margin-left:0.5rem;margin-right:0.5rem;width:100%;font-size:0.7rem;white-space:inherit;"><span>${lis.answer}</span></div>
+                    </li>
+                    </#if>
+                </ul>
+            </div>
+        </#list>
+    </#if>
+</div>
+</body>
+
+</html>

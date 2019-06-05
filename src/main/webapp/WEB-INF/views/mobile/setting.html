@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>崇文书局</title>
+    <#include "../include/public_file.ftl" />
+
+    <link rel="stylesheet" href="/static/mobile/css/setting.css">
+    <script type='text/javascript' src='/static/mobile/js/setting.js' charset='utf-8'></script>
+</head>
+
+<body>
+<header>
+    <a class="icon icon-left pull-left" href="/my"></a>
+    <h1 class="title">我的资料</h1>
+</header>
+<!--页面内容区域-->
+<div class="content" style="top:2.2rem">
+    <div class="list-block" style="margin: 0;">
+        <ul>
+            <li class="item-content">
+                <div class="item-inner" style="padding-right: 1rem;">
+                    <div class="item-title">头像</div>
+                    <div class="item-after" style="max-height:3rem;">
+                        <img style="    width: 3rem;height: 3rem;border-radius: 50%;" id="icon"  alt="">
+                    </div>
+                </div>
+            </li>
+            <li class="item-content item-link">
+                <div class="item-inner">
+                    <div class="item-title">昵称</div>
+                    <div class="item-after" id="nick_name"></div>
+                </div>
+            </li>
+            <li class="item-content item-link">
+                <div class="item-inner">
+                    <div class="item-title">性别</div>
+                    <div class="item-after" id="sex"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+</body>
+
+</html>

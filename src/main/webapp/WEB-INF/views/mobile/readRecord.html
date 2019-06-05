@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>崇文书局</title>
+    <#include "../include/public_file.ftl" />
+
+    <link rel="stylesheet" href="/static/mobile/css/readRecord.css">
+    <script type='text/javascript' src='/static/mobile/js/readRecord.js' charset='utf-8'></script>
+</head>
+
+<body>
+<header>
+    <a class="icon icon-left pull-left" href="/my"></a>
+    <h1 class="title">阅读记录</h1>
+</header>
+<!--页面内容区域-->
+<div class="content" style="top:2.2rem">
+    <div class="buttons-tab" style="border-bottom: 1px solid #ddd;">
+        <a href="#tab1" class="tab-link active button">音视频</a>
+        <a href="#tab2" class="tab-link button">电子书</a>
+    </div>
+    <div class="content-block">
+        <div class="tabs">
+            <div id="tab1" class="tab active">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="list-block media-list">
+                            <ul>
+                                <#if videoRecord ?? && videoRecord?size !=0>
+                                <#list videoRecord as video>
+                                    <li class="item-content">
+                                        <div class="item-media">
+                                            <img src="${ctxPath}${video.cover}"
+                                                 width="44">
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-text">${video.name}</div>
+                                            </div>
+                                            <#if video.read_type?? && video.read_type == 1>
+                                            <p>电子书</p>
+                                            <#else>
+                                            <p>音视频</p>
+                                            </#if>
+                                            <p style="color: #b9b9b9">
+                                                已观看到${video.schedule}
+                                            </p>
+                                            <div class="continue">
+                                                继续
+                                            </div>
+                                        </div>
+                                    </li>
+                                </#list>
+                                </#if>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tab2" class="tab">
+                <div class="content-block">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list-block media-list">
+                                <ul>
+                                    <#if bookRecord ?? && bookRecord ? size != 0>
+                                    <#list bookRecord as book>
+                                        <li class="item-content">
+                                            <div class="item-media">
+                                                <img src="${ctxPath}${book.cover}"
+                                                     width="44">
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title-row">
+                                                    <div class="item-text">${book.name}</div>
+                                                </div>
+                                                <#if book.read_type?? && book.read_type == 1>
+                                                    <p>电子书</p>
+                                                <#else>
+                                                    <p>音视频</p>
+                                                </#if>
+                                                <p style="color: #b9b9b9">
+                                                    已阅读到${book.schedule}
+                                                </p>
+                                                <div class="continue">
+                                                    继续
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </#list>
+                                    </#if>
+                                </ul>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>崇文书局</title>
+    <#include "../include/public_file.ftl" />
+
+    <link rel="stylesheet" href="/static/mobile/css/myTestList.css">
+    <script type='text/javascript' src='/static/mobile/js/myTestList.js' charset='utf-8'></script>
+</head>
+
+<body>
+<header>
+    <a class="icon icon-left pull-left" href="javascript:window.history.back()"></a>
+    <h1 class="title">试卷列表</h1>
+</header>
+<!--页面内容区域-->
+<div class="content" style="top:2.2rem">
+    <div class="card">
+        <#if works ?? >
+            <div class="card-content">
+                <div class="list-block media-list">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-media">
+                                <#if works.works_cover_small ??>
+                                    <img src="${ctxPath}${works.works_cover_small}"
+                                         style="width:4rem;height:5.333rem;" />
+                                    <#else>
+                                        <img src="${ctxPath}/static/mobile/img/img404.png"
+                                             style="width:4rem;height:5.333rem;" />
+                                </#if>
+                            </div>
+                            <div class="item-inner">
+                                <!--<div class="item-title-row">-->
+                                <!--<div class="item-text">2018高考数学零基础通关课</div>-->
+                                <!--</div>-->
+                                <div calss="item-title" style="overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;display:-webkit-box;white-space:normal;font-size:0.7rem;">${works.works_name}</div>
+                                <div class="item-subtitle" style="margin:0;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;display:-webkit-box;white-space:normal;margin-top:1rem;font-size:0.6rem;">
+                                    ${works.works_remark}
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-footer" >
+                <div class="card_foot" >
+                    <span ><i class="iconfont icon-tushu" style="margin-right:0.5rem;color:#fff;"></i>试卷列表</span>
+                    <#if paperPracticeList ?? && paperPracticeList ? size !=0>
+                        <span style="float:right;"><i style="margin-right:0.2rem;">${paperPracticeList?size}</i>套</span>
+                    </#if>
+                </div>
+            </div>
+        </#if>
+    </div>
+    <div class="content_cont">
+        <ul>
+            <#if paperPracticeList ?? && paperPracticeList ? size !=0>
+                <#list paperPracticeList as lis>
+                    <li style="margin: 0.5rem 0;">
+                        <div class="cont_cont">
+                            <div class="row" style="background:#fff;margin:0 0.5rem;border-radius:0.3rem;padding:1rem 0;">
+                                <div class="col-80" style="border-right:1px solid #ededed;min-height:4.5rem;">
+                                    <!--<div calss="item-title" style="line-height:1.5rem;">${lis.paper_name}<span style="display:inline-block;float:right;width:1.5rem;height:1.5rem;border:1px solid #08aefd;border-radius:50%;text-align:center;line-height:1.5rem;margin-right:0.5rem;font-size:0.75rem;">30'</span></div>-->
+                                    <div calss="item-title" style="line-height:1.5rem;">${lis.paper_name}</div>
+                                    <div class="row" style="font-size:0.7rem;color:#5f646e;margin:0.3rem 0;">
+                                        <span class="col-50" style="margin-left:0;">试卷总分: <span>${lis.paper_score}</span>分</span>
+                                        <span class="col-50" style="margin-left:0;">题目数量: <span>${lis.question_number}</span>题</span>
+                                    </div>
+                                    <#if lis.member_score ?? && lis.mistakes ??>
+                                        <div class="row" style="font-size:0.7rem;color:#5f646e;margin:0.3rem 0;">
+                                            <span class="col-50" style="margin-left:0;">上一次得分: <span>${lis.member_score}</span>分</span>
+                                            <span class="col-50" style="margin-left:0;">错题: <span>${lis.mistakes}</span>题</span>
+                                        </div>
+                                    </#if>
+                                </div>
+                                <div class="col-20" style="margin-left:0;">
+                                    <div style="margin-top:1rem;text-align:center;background:#dab866;color:#fff;border-radius:0.3rem;margin-left:0.5rem;font-size:0.7rem;padding:0.25rem;" onclick="go_exam(${lis.paper_id});">开始<br/>答题</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </#list>
+            </#if>
+        </ul>
+    </div>
+</div>
+</body>
+
+</html>

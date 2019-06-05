@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>崇文书局</title>
+    <#include "../include/public_file.ftl" />
+
+    <link rel="stylesheet" href="/static/mobile/css/resourceInfo.css">
+    <script type='text/javascript' src='/static/mobile/js/resourceInfo.js' charset='utf-8'></script>
+    <!--<script src="http://html5media.googlecode.com/svn/trunk/src/html5media.min.js"></script>-->
+
+</head>
+<body>
+<header class="bar bar-nav" style="background:#fff;">
+    <a class="button button-link button-nav pull-left back" href="javascript:window.history.back()" style="color:#545454;">
+        <span class="icon icon-left"></span>
+        返回
+    </a>
+    <#if resource ??>
+        <#if resource.res_name ??>
+            <h1 class="title" style="border-bottom: 1px solid #e7e7e7;text-overflow:ellipsis;white-space:nowrap;padding-left:1rem;overflow:hidden;">${resource.res_name}</h1>
+            <#else>
+            <h1 class="title" style="border-bottom: 1px solid #e7e7e7;text-overflow:ellipsis;white-space:nowrap;padding-left:1rem;overflow:hidden;">资源详情</h1>
+        </#if>
+    </#if>
+
+
+</header>
+<!--页面内容区域-->
+<div class="content" style="background:#f4f4f4;top:2.2rem;height:100%;">
+    <#if resource ??>
+        <#if resource.res_type ??>
+            <#if resource.res_type=='音频'>
+                <div class="btn-audio">
+                    <audio id="mp3Btn"><source src="${ctxPath}${resource.res_url}" type="audio/mp3" /></audio>
+                    <div id="shade_on">
+                        <i class="iconfont icon-kaishi"></i>
+                    </div>
+                </div>
+                <#elseif resource.res_type=='视频'>
+                    <div>
+                        <video src="${ctxPath}${resource.res_url}" style="width:100%" controls="controls" autoplay></video>
+                    </div>
+                <#else>
+                    <div id="total" style="display:none;">${resource.res_size}</div>
+                    <div id="dataUrl" style="display:none;">${resource.res_analysis_url}</div>
+                    <div class="swiper-container" id="first-swiper" style="padding-bottom:1.5rem;height:100%;">
+                        <div class="swiper-wrapper">
+                            <!--<div class="swiper-slide"><a href=""><img src="http://cw.cjszyun.net/attachment/analysis/1522736549501/img1.png" alt="" style="width:100%;height:100%;"></a></div>-->
+                            <!--<div class="swiper-slide"><a href=""><img src="http://cw.cjszyun.net/attachment/analysis/1522736549501/img2.png" alt="" style="width:100%;height:100%;"></a></div>-->
+                            <!--<div class="swiper-slide"><a href=""><img src="http://cw.cjszyun.net/attachment/analysis/1522736549501/img3.png" alt="" style="width:100%;height:100%;"></a></div>-->
+                        </div>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination" style="bottom:2.5rem;"></div>
+                    </div>
+            </#if>
+        </#if>
+    </#if>
+
+
+    <!--Player.audio.play();   Player.audio.pause();  (100 / audio.duration) * audio.currentTime   Math.PI * 2;-->
+
+    <!--var canvas = document.getElementById('progress');-->
+    <!--var context = canvas.getContext('2d');-->
+    <!--var centerX = canvas.width / 2;-->
+    <!--var centerY = canvas.height / 2;-->
+    <!--var radius = 150;-->
+    <!--var circ = Math.PI * 2;-->
+    <!--var quart = Math.PI / 2;-->
+    <!--var cpercent = percent / 100; /* current percent */-->
+    <!--context.beginPath();-->
+    <!--context.arc(centerX, centerY, radius, 0, ((circ) * cpercent), false);-->
+    <!--context.lineWidth = 10;-->
+    <!--context.strokeStyle = '#26C5CB';-->
+    <!--context.stroke();-->
+
+</div>
+
+</body>
+</html>

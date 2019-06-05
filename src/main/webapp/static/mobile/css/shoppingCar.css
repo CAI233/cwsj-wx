@@ -1,0 +1,176 @@
+.buttons-tab .button.active {
+    color: #dab865;
+    border-color: #dab865;
+}
+
+header {
+    height: 2.2rem;
+    line-height: 2.2rem;
+    border-bottom: 1px solid #ddd;
+    padding: 0 .5rem
+}
+
+header a {
+    color: #545454;
+    position: absolute;
+    z-index: 11;
+}
+
+.item-inner p {
+    margin: 0;
+    font-size: .75rem;
+}
+
+.item-inner .item-title {
+    font-size: .8rem;
+}
+
+.item-media img {
+    width: 4rem;
+    height: 5.3333333rem;
+}
+
+.item-inner .addDel {
+    border: 1px solid #ccc;
+    width: 50%;
+    float: right;
+    border-radius: 5px;
+    display: flex;
+}
+
+.item-inner .addDel a {
+    width: 30%;
+    text-align: center;
+    color: #000;
+    font-size: .7rem;
+}
+
+.item-inner .addDel span {
+    width: 40%;
+    text-align: center;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+.list-block ul {
+    background: transparent;
+}
+
+.list-block ul li {
+    margin-bottom: .25rem;
+    width: 100%;
+    background: #fff;
+}
+
+.label-checkbox.active > .item-media i.icon-form-checkbox, .label-checkbox.active > .item-media i.icon-form-checkbox {
+    border: none;
+    background-color: #0894ec
+}
+.label-checkbox.active >.item-media i.icon-form-checkbox:after, .label-checkbox.active > .item-media i.icon-form-checkbox:after{
+    background: no-repeat center;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20x%3D'0px'%20y%3D'0px'%20viewBox%3D'0%200%2012%209'%20xml%3Aspace%3D'preserve'%3E%3Cpolygon%20fill%3D'%23ffffff'%20points%3D'12%2C0.7%2011.3%2C0%203.9%2C7.4%200.7%2C4.2%200%2C4.9%203.9%2C8.8%203.9%2C8.8%203.9%2C8.8%20'%2F%3E%3C%2Fsvg%3E");
+    background-size: .6rem .45rem;
+}
+html:not(.watch-active-state) label.label-checkbox:active, label.label-checkbox.active-state{
+    background-color:transparent;
+}
+
+.row-footer .button {
+    height: 1.6rem;
+    line-height: 1.6rem;
+}
+
+.row-footer .row div:first-child .button {
+    background: #fff;
+    border: 1px solid #999;
+    color: #999
+}
+
+.row-footer .row div:last-child .button {
+    color: #fff;
+    background: #dab864;
+}
+
+.row-footer > .row {
+    width: 60%;
+    float: right;
+    margin: 0 0 .25rem;
+}
+
+.row-footer {
+    position: relative;
+}
+.item-inner .nums {
+    position: absolute;
+    top: 50%;
+    right: .75rem;
+    margin-top: -.5rem;
+}
+.list-block .item-inner:after{
+    content: none;
+}
+#orderList >div:not(:last-child){
+    border-bottom: 1px solid #f1f1f1;
+}
+.row-footer:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 1px;
+    background: #f2f2f2;
+}
+.card .card-header {
+    font-size: .7rem;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.card .card-header:after {
+    content: none;
+}
+.card {
+    margin: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.card .card-content {
+    background: #fff;
+    margin-bottom: .5rem;
+}
+.swiper-slide.del {
+    min-width: 5rem;
+    width: 30%;
+    max-width: 16rem;
+    background-color: red;
+    color: #fff;
+}
+.swiper-container {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 0;
+    display: grid;
+    border-bottom: 1px solid #ddd;
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.list-block ul:before,.list-block ul:after{
+    content: none;
+}

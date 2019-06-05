@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>崇文书局</title>
+    <#include "../include/public_file.ftl" />
+
+    <link rel="stylesheet" href="/static/mobile/css/projectList.css">
+    <script type='text/javascript' src='/static/mobile/js/projectList.js' charset='utf-8'></script>
+</head>
+
+<body>
+<header>
+    <a class="icon icon-left pull-left" href="/coorperProject"></a>
+    <h1 class="title" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding-left:1rem;">${cat_name}</h1>
+</header>
+<!--页面内容区域-->
+<div class="content" style="top:2.2rem">
+    <div class="card" style="margin:0.5rem 0;">
+        <div class="card-content">
+            <div class="list-block media-list">
+                <ul>
+                    <#if cooperationProjectList ?? && cooperationProjectList ? size !=0>
+                        <#list cooperationProjectList as lis>
+                            <li class="item-content" onclick="goDetails(${lis.project_id});" style="border-bottom:1px solid #ababab;margin-bottom:0.5rem;">
+                                <div class="item-media">
+                                    <#if lis.project_cover_small ??>
+                                        <img src="${ctxPath}${lis.project_cover_small}"  style="width:4rem;height:5.33rem;">
+                                        <#else>
+                                            <img src="${ctxPath}/static/mobile/img/img404.png"  style="width:4rem;height:5.33rem;">
+                                    </#if>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title" style="color:#000;font-size:0.75rem;">${lis.project_name}</div>
+                                    </div>
+                                    <div class="item-text" style="color:#ababab;font-size:0.7rem;margin-top:1rem;text-indent:2em;">${lis.remark}</div>
+                                </div>
+                            </li>
+                        </#list>
+                    </#if>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+
+</html>

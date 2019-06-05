@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>崇文书局</title>
+    <#include "../include/public_file.ftl" />
+
+    <link rel="stylesheet" href="/static/mobile/css/payRecord.css">
+    <script type='text/javascript' src='/static/mobile/js/payRecord.js' charset='utf-8'></script>
+</head>
+
+<body>
+<header>
+    <a class="icon icon-left pull-left" href="/my"></a>
+    <h1 class="title">支付记录</h1>
+</header>
+<!--页面内容区域-->
+<div class="content" style="top:2.2rem">
+    <div class="buttons-tab" style="border-bottom: 1px solid #ddd;">
+        <a href="#tab1" class="tab-link active button">已购作品</a>
+        <a href="#tab2" class="tab-link button">已购图书</a>
+    </div>
+    <div class="content-block">
+        <div class="tabs">
+            <div id="tab1" class="tab active">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="list-block media-list">
+                            <ul>
+                                <#if worksList ?? && worksList?size != 0>
+                                    <#list worksList as works>
+                                        <li class="item-content"
+                                            onclick="javascript:location.href='/worksInfo?works_id=${works.buy_id}'">
+                                            <div class="item-media">
+                                                <#if works.cover ??>
+                                                    <img src="${ctxPath}${works.cover}"
+                                                         width="44"/>
+                                                    <#else>
+                                                        <img src="${ctxPath}/static/mobile/img/img404.png"
+                                                             width="44"/>
+                                                </#if>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title-row">
+                                                    <div class="item-text">${works.name}</div>
+                                                </div>
+                                                <p>${works.works_type}</p>
+                                                <#if works.create_time??>
+                                                    <p style="color: #b9b9b9">
+                                                        购买时间: ${works.create_time?string('yyyy-MM-dd HH:mm:ss')}
+                                                    </p>
+                                                </#if>
+                                            </div>
+                                        </li>
+                                    </#list>
+                                </#if>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tab2" class="tab">
+                <div class="content-block">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="list-block media-list">
+                                <ul>
+                                    <#if goodsList ?? && goodsList?size != 0>
+                                        <#list goodsList as goods>
+                                            <li class="item-content"
+                                                onclick="javascript:location.href='/goodsInfo?goods_id=${goods.buy_id}'">
+                                                <div class="item-media">
+                                                    <img src="${ctxPath}${goods.cover}"
+                                                         width="44">
+                                                </div>
+                                                <div class="item-inner">
+                                                    <div class="item-title-row">
+                                                        <div class="item-text">${goods.name}</div>
+                                                    </div>
+                                                    <#if goods.goods_type??>
+                                                        <#if goods.goods_type == 1>
+                                                            <p>图书</p>
+                                                        </#if>
+                                                        <#if goods.goods_type == 2>
+                                                            <p>音视频</p>
+                                                        </#if>
+                                                        <#if goods.goods_type == 3>
+                                                            <p>电子书</p>
+                                                        </#if>
+                                                    </#if>
+                                                    <p style="color: #b9b9b9">
+                                                        购买时间: ${goods.create_time?string('yyyy-MM-dd HH:mm:ss')}
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        </#list>
+                                    </#if>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>
